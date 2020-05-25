@@ -1,2 +1,3 @@
-# CockpitCE
+# Cockpit Community Edition
+
 
