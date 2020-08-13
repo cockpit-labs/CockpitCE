@@ -1,0 +1,53 @@
+version: '3'
+
+volumes:
+  mysql_data:
+    driver: local
+
+services:
+  mysql:
+    image: mysql:5.7
+    container_name: cockpitce_mysql
+    volumes:
+      - mysql_data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: keycloak
+      MYSQL_USER: keycloak
+      MYSQL_PASSWORD: keycloak
+  keycloak:
+    container_name: cockpitce_keycloak
+    image: quay.io/keycloak/keycloak:9.0.3
+    environment:
+      DB_VENDOR: MYSQL
+      DB_ADDR: mysql
+      DB_DATABASE: keycloak
+      DB_USER: keycloak
+      DB_PASSWORD: keycloak
+      KEYCLOAK_USER: admin
+      KEYCLOAK_PASSWORD: KPa550rd
+      PROXY_ADDRESS_FORWARDING: 'true'
+      JDBC_PARAMS: "useSSL=false"
+    volumes:
+      - /tmp:/tmp
+    ports:
+      - 8080:8080
+    depends_on:
+      - mysql
+  cockpitce:
+    image: cockpitlabs/cockpitce:latest
+    container_name: cockpitce_apps
+    environment:
+      MYSQL_ROOT: root
+      MYSQL_ROOT_PASSWORD: root
+      DB_USER: cockpitce
+      DB_PASSWORD: cockpitce
+      DB_DATABASE: cockpitce
+      KEYCLOAK_USER: admin
+      KEYCLOAK_PASSWORD: KPa550rd
+    ports:
+      - 81:80
+    depends_on:
+      - keycloak
+      - mysql
+
