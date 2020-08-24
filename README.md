@@ -12,7 +12,7 @@ Create/clone/modify questionnaires with dozens of answer types : yes/no, scale, 
 
 ### Manage users & groups
 
-Import your people and organisation or mange your groups, roles & hierarchy as to write checklists, access dashboards and scoring...
+Import people and organisation or manage your groups, roles & hierarchy as to write checklists, access dashboards and scoring...
 
 ### Analyse your feed-backs
 
@@ -22,7 +22,7 @@ Complete dashboard with benchmarks, scoring, filters, progressions and a lot mor
 
 Automatically extract all the pics from your questionnaires to display and filter them in the photo gallery.
 
-## CockpitCE repos
+## CockpitCE repositories
 
 ### Core
 This is the [Symfony](https://symfony.com/) core, with [API Platform](https://api-platform.com/) bundle.
@@ -30,12 +30,12 @@ This is the [Symfony](https://symfony.com/) core, with [API Platform](https://ap
 [Repo is here](https://github.com/cockpit-labs/Core)
 
 ### View
-The View module is the main app, used for filling questionnaires, viewing dashboard and so.
+The View module is the main app, used for filling questionnaires, viewing dashboard and so on.
 
 [Repo is here](https://github.com/cockpit-labs/View)
 
 ### Admin
-The Admin module allow questionnaires and folder creation.
+The Admin module allows questionnaires and folders creation.
 
 [Repo is here](https://github.com/cockpit-labs/Admin)
 
@@ -47,7 +47,7 @@ To use the `Docker` demo, download the [Docker composer file](Docker/cockpitce.y
 docker-compose -f cockpitce.yml up
 ```
 
-This will create a `mysql`container, a `keycloak`container and the `cockpitce` container. Technical users and password can be change in the docker composer file.
+This will create a `mysql`container, a `keycloak`container and the `cockpitce` container. Technical users and password can be changed in the docker composer file.
 
 MySQL
 
@@ -75,7 +75,7 @@ Usable app users are:
 * `audie.fritsch` a Country Manager  
 * `kallie.dibbert` the `Store-22` manager
 
-Each user has is username as password.
+In this demo, user's password is equal to username.
 
 Once docker containers running, API swagger UI can be used at the url http://localhost:81/core/api
 
@@ -83,7 +83,7 @@ To get a token for a user, use this command (for user audie.fritsch and admin cl
 ```bash
 docker exec -ti demo_cockpitce_1 /app/core/bin/console demo:token:generate --username audie.fritsch --client cockpitadmin
 ``` 
-Or, for user kallie.dibbert with view client:
+Or, for user kallie.dibbert with View client:
 ```bash
 docker exec -ti demo_cockpitce_1 /app/core/bin/console demo:token:generate --username kallie.dibbert --client cockpitview
 ``` 
