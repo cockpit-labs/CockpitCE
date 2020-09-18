@@ -5,6 +5,10 @@ volumes:
     driver: local
 
 services:
+  gotenberg:
+    image: thecodingmachine/gotenberg:6
+    container_name: cockpitce_gotenberg
+
   mysql:
     image: mysql:5.7
     container_name: cockpitce_mysql
@@ -15,6 +19,7 @@ services:
       MYSQL_DATABASE: keycloak
       MYSQL_USER: keycloak
       MYSQL_PASSWORD: keycloak
+
   keycloak:
     container_name: cockpitce_keycloak
     image: quay.io/keycloak/keycloak:9.0.3
@@ -45,6 +50,11 @@ services:
       DB_DATABASE: cockpitce
       KEYCLOAK_USER: admin
       KEYCLOAK_PASSWORD: KPa550rd
+      KEYCLOAKAUTHURL: http://localhost:8080/auth
+      KEYCLOAKURL: http://keycloak:8080
+      DEFAULTURL: http://localhost:81
+      APIURL: http://localhost/core
+      GOTENBERGURL: http://gotenberg:3000
     ports:
       - 81:80
     depends_on:
