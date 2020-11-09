@@ -39,9 +39,11 @@ The View module is the main app, used for filling questionnaires, viewing dashbo
 [Repo is here](https://github.com/cockpit-labs/View)
 
 ### Admin
-The Admin module allows questionnaires and folders creation.
 
-[Repo is here](https://github.com/cockpit-labs/Admin)
+There's no specific Admin module for now. You can inject your templates with `/app/core/bin/console demo:load` command inside container, using JSON template (ie : https://github.com/cockpit-labs/Core/blob/master/demo/TemplatesRetail.json).
+
+Keycloak could also be used for users/groups/roles management (http://localhost:8080) 
+
 
 ## Demo with Docker Compose
 

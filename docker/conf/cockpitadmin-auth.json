@@ -1,8 +1,0 @@
-{
-  "auth-server-url": "%%KEYCLOAKAUTHURL%%",
-  "confidential-port": 0,
-  "public-client": true,
-  "realm": "cockpit-ce",
-  "resource": "cockpitadmin",
-  "ssl-required": "external"
-}

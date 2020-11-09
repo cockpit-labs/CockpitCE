@@ -7,11 +7,11 @@ volumes:
 services:
   gotenberg:
     image: thecodingmachine/gotenberg:6
-    container_name: cockpitce_gotenberg
+    container_name: cockpit_gotenberg
 
   mysql:
     image: mysql:5.7
-    container_name: cockpitce_mysql
+    container_name: cockpit_mysql
     volumes:
       - mysql_data:/var/lib/mysql
     environment:
@@ -21,7 +21,7 @@ services:
       MYSQL_PASSWORD: keycloak
 
   keycloak:
-    container_name: cockpitce_keycloak
+    container_name: cockpit_keycloak
     image: quay.io/keycloak/keycloak:9.0.3
     environment:
       DB_VENDOR: MYSQL
@@ -39,25 +39,26 @@ services:
       - 8080:8080
     depends_on:
       - mysql
-  cockpitce:
-    image: cockpitlabs/cockpitce:latest
-    container_name: cockpitce_apps
+  cockpit:
+    image: cockpitlabs/cockpitee:latest
+    container_name: cockpit_apps
     environment:
       MYSQL_ROOT: root
       MYSQL_ROOT_PASSWORD: root
-      DB_USER: cockpitce
-      DB_PASSWORD: cockpitce
-      DB_DATABASE: cockpitce
+      DB_USER: cockpit
+      DB_PASSWORD: cockpit
+      DB_DATABASE: cockpit
       KEYCLOAK_USER: admin
       KEYCLOAK_PASSWORD: KPa550rd
-      KEYCLOAKAUTHURL: http://localhost:8080/auth
-      KEYCLOAKURL: http://keycloak:8080
-      DEFAULTURL: http://localhost:81
+      KEYCLOAKREALM: cockpit
+      KEYCLOAKCLIENTAUTHURL: http://localhost:8080/auth
+      BASEURL: http://localhost
       APIURL: http://localhost/core
       GOTENBERGURL: http://gotenberg:3000
     ports:
-      - 81:80
+      - 80:80
     depends_on:
       - keycloak
       - mysql
+      - gotenberg
 

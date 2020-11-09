@@ -1,26 +1,23 @@
-FROM php:7.2-apache-stretch
-ARG CORETAG
-ENV CORETAG ${CORETAG:-latest}
-ARG VIEWTAG
-ENV VIEWTAG ${VIEWTAG:-latest}
-ENV COMPOSER_ALLOW_SUPERUSER=1
+FROM php:7.3.22-apache
+ARG COREPACKAGE
+ENV COREPACKAGE ${COREPACKAGE}
+ARG VIEWPACKAGE
+ENV VIEWPACKAGE ${VIEWPACKAGE}
+#ARG ADMINTAG
+#ENV ADMINTAG ${ADMINTAG:-latest}
+ARG TOKEN
+ENV TOKEN ${TOKEN:-BdVfyo_eoZ5FXHfqP9DU}
 
 EXPOSE 80
-WORKDIR /www
+WORKDIR /app
 
-RUN echo "Using Core release $CORETAG"
-RUN echo "Using View release $VIEWTAG"
+RUN mkdir /www && mkdir -p /symfony/var && mkdir -p /symfony/vendor && mkdir /cache
 
-
-RUN mkdir /app
-
-ENV COMPOSER_ALLOW_SUPERUSER=1
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-RUN composer --version
+VOLUME /symfony/var
+VOLUME /symfony/vendor
 
 RUN apt-get update -qq \
     && apt-get install -qy \
-        git \
         gnupg \
         iputils-ping \
         libicu-dev \
@@ -28,59 +25,64 @@ RUN apt-get update -qq \
         unzip \
         zip \
         jq \
+        default-mysql-client \
         libpng-dev \
-        mysql-client \
         zlib1g-dev  \
         wait-for-it \
         sudo \
+        vim \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 
 # PHP Extensions
-RUN docker-php-ext-configure zip --with-libzip && \
-	docker-php-ext-install -j$(nproc) intl opcache pdo_mysql zip gd mbstring
+RUN	docker-php-ext-install -j$(nproc) intl opcache pdo_mysql mysqli zip gd
+RUN pecl install apcu && docker-php-ext-enable apcu
 RUN pecl install timecop-beta
 COPY conf/php.ini /usr/local/etc/php/conf.d/app.ini
+COPY conf/apcu.ini /usr/local/etc/php/conf.d/apcu.ini
+COPY conf/timecop.ini /usr/local/etc/php/conf.d/timecop.ini
+
+# Install Symfony binary
+RUN curl -sS https://get.symfony.com/cli/installer | bash
 
 # Apache
+RUN mv ${HOME}/.symfony/bin/symfony /usr/local/bin/symfony
 COPY conf/cockpitce.conf /etc/apache2/sites-available/000-default.conf
 COPY conf/apache.conf /etc/apache2/conf-available/app.conf
 
 RUN a2enconf app
 RUN a2enmod rewrite remoteip
 RUN a2disconf other-vhosts-access-log
-# DB stuff
-COPY conf/start.sh /app
+
+COPY conf/start.sh /
+
+COPY conf/sudoers.d/99_www-data /etc/sudoers.d/
+
+RUN chown www-data:www-data /app
+RUN chown www-data:www-data /var/www
+RUN chown www-data:www-data /www
+RUN chown -R www-data:www-data /cache
+RUN chown -R www-data:www-data /symfony
+
+COPY conf/sudoers.d/99_www-data /etc/sudoers.d/
+RUN curl -L -s https://github.com/maxcnunes/waitforit/releases/download/v2.4.1/waitforit-linux_amd64 --output /usr/local/bin/waitforit && chmod a+x  /usr/local/bin/waitforit
+
+USER www-data
 
 # Download Core
-RUN echo "Downloading Core realease ${CORETAG}"
-RUN rm -rf app/Core && curl -s https://download.cockpitlabs.io/Core-${CORETAG}.tar.gz | tar xvz -C /app/ >> /dev/nul
+RUN echo "Downloading Core package ${COREPACKAGE}"
+RUN rm -rf app/Core &&  curl --header "PRIVATE-TOKEN: $TOKEN" https://git.sentinelo.com/api/v4/projects/514/packages/generic/${COREPACKAGE} | tar xvz --no-same-owner -C /app/ >> /dev/null
 
 # Download View
-RUN echo "Downloading View realease ${VIEWTAG}"
-RUN rm -rf app/Core && curl -s https://download.cockpitlabs.io/View-${VIEWTAG}.tar.gz | tar xvz -C /app/ >> /dev/nul
+RUN echo "Downloading View package ${VIEWPACKAGE}"
+RUN rm -rf app/Core && curl --header "PRIVATE-TOKEN: $TOKEN" https://git.sentinelo.com/api/v4/projects/518/packages/generic/${VIEWPACKAGE} | tar xvz --no-same-owner -C /app/ >> /dev/null
 
-#COPY app/Core /app/Core
-#COPY app/view /app/view
-#COPY app/lang /app/data/public/lang
+## Download Admin
+#RUN echo "Downloading Admin realease ${ADMINTAG}"
+#RUN rm -rf app/Core && curl -s https://download.cockpitlabs.io/Admin-${ADMINTAG}.tar.gz | tar xvz --no-same-owner -C /app/ >> /dev/null
+
 COPY conf/core.env /app/Core/.env
-RUN rm -rf /app/Core/var > /dev/null \
-    && mkdir /app/Core/var \
-    && mkdir -p /app/data/private \
-    && mkdir -p /app/data/public \
-    && mkdir -p /app/data/public/lang \
-    && ln -s /app/Core/public /www/core \
-    && ln -s /app/data/public /www/data \
-    && ln -s /app/View/dist/lang /app/data/public/lang/view \
-    && ln -s /app/View/dist /www/view
-
-COPY conf/cockpitadmin-auth.json /app/data/public
-COPY conf/cockpitview-auth.json /app/data/public
-
-RUN chown -R www-data:www-data /app
-
-ENTRYPOINT "/app/start.sh"
 
 
-
+ENTRYPOINT "/start.sh"
