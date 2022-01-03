@@ -1,0 +1,34 @@
+.basegrid {
+    .x-tool.x-start {
+        margin-right: 12px;
+    }
+    .x-checkcell.activeColumn:not(.x-checked) ~ .x-gridcell:not(.x-checkcell) .x-gridcell-body-el {
+        text-decoration: line-through;
+    }
+    .x-checkcell.activeColumn .x-checkcell-body-el {
+        display:none;
+    }
+    .customcheck.x-checkcell {
+        .x-checkbox-el:before {
+            content: '✘';
+            color: $red-color;
+        }
+        &.x-disabled {
+            .x-checkbox-el {
+                cursor: no-drop;
+            }
+            .x-checkbox-el:before {
+                opacity: .4;
+            }
+        }
+        &.x-checked {
+            .x-checkbox-el:before {
+                content: '✔';
+                color: $green-color;
+            }
+        }
+    }
+    .x-panelheader .x-tool .x-icon-el {
+        color: var(--base-foreground-color);
+    }
+}

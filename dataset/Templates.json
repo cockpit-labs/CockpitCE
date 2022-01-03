@@ -1,0 +1,1411 @@
+[
+  {
+    "Calendar": [
+      {
+        "id": "Calendar01",
+        "start": "2021-09-23T00:00:00+00:00",
+        "end": "2021-12-22T00:00:00+00:00",
+        "cronStart": "* * * * 1",
+        "cronEnd": "* * * * 6",
+        "valid": true,
+        "label": "Calendar",
+        "description": "Calendar for year 2020, with period between monday and saturday"
+      }
+    ]
+  },
+  {
+    "Block\\BlockTpl": [
+      {
+        "sample": false,
+        "questionTpls": [
+          {
+            "sample": false,
+            "defaultChoiceTpl": null,
+            "choiceTpls": [
+              {
+                "media": null,
+                "label": "yes",
+                "position": 1,
+                "valueFormula": []
+              },
+              {
+                "media": null,
+                "label": "no",
+                "position": 2,
+                "valueFormula": []
+              }
+            ],
+            "children": [],
+            "weight": 1,
+            "position": 1,
+            "maxChoices": 1,
+            "category": null,
+            "label": "lighting is complete and correct",
+            "description": null,
+            "externalUrl": null,
+            "alias": "yesno",
+            "readRenderer": null,
+            "writeRenderer": {
+              "display": "button",
+              "component": "select"
+            },
+            "validator": [],
+            "trigger": null,
+            "hiddenLabel": false,
+            "mandatory": true,
+            "hasComment": true,
+            "maxPhotos": 1,
+            "minChoices": 1
+          },
+          {
+            "sample": false,
+            "defaultChoiceTpl": null,
+            "choiceTpls": [
+              {
+                "media": null,
+                "label": "yes",
+                "position": 1,
+                "valueFormula": []
+              },
+              {
+                "media": null,
+                "label": "no",
+                "position": 2,
+                "valueFormula": []
+              },
+              {
+                "media": null,
+                "label": "n\/a",
+                "position": 3,
+                "valueFormula": []
+              }
+            ],
+            "children": [],
+            "weight": 1,
+            "position": 2,
+            "maxChoices": 1,
+            "category": null,
+            "label": "storehouse is clean and locked ",
+            "description": null,
+            "externalUrl": null,
+            "alias": "yesno",
+            "readRenderer": null,
+            "writeRenderer": {
+              "display": "button",
+              "component": "select"
+            },
+            "validator": [],
+            "trigger": null,
+            "hiddenLabel": false,
+            "mandatory": true,
+            "hasComment": true,
+            "maxPhotos": 0,
+            "minChoices": 1
+          },
+          {
+            "sample": false,
+            "defaultChoiceTpl": null,
+            "choiceTpls": [
+              {
+                "media": null,
+                "label": "",
+                "position": 1,
+                "valueFormula": {
+                  "expression": "value"
+                }
+              }
+            ],
+            "children": [],
+            "weight": 1,
+            "position": 3,
+            "maxChoices": 1,
+            "category": null,
+            "label": "windows are compliant with merchandizing guide ",
+            "description": null,
+            "externalUrl": null,
+            "alias": "range",
+            "readRenderer": null,
+            "writeRenderer": {
+              "max": 10,
+              "min": 1,
+              "step": 1,
+              "component": "range"
+            },
+            "validator": [],
+            "trigger": null,
+            "hiddenLabel": false,
+            "mandatory": true,
+            "hasComment": false,
+            "maxPhotos": 0,
+            "minChoices": 1
+          },
+          {
+            "sample": false,
+            "defaultChoiceTpl": null,
+            "choiceTpls": [
+              {
+                "media": null,
+                "label": "All clean",
+                "position": 1,
+                "valueFormula": []
+              },
+              {
+                "media": null,
+                "label": "Need some improvement",
+                "position": 2,
+                "valueFormula": []
+              },
+              {
+                "media": null,
+                "label": "not acceptable",
+                "position": 3,
+                "valueFormula": []
+              }
+            ],
+            "children": [],
+            "weight": 1,
+            "position": 4,
+            "maxChoices": 1,
+            "category": null,
+            "label": "shelves are clean ",
+            "description": null,
+            "externalUrl": null,
+            "alias": "select",
+            "readRenderer": null,
+            "writeRenderer": {
+              "display": "list",
+              "component": "select",
+              "multiselect": false
+            },
+            "validator": [],
+            "trigger": null,
+            "hiddenLabel": false,
+            "mandatory": true,
+            "hasComment": false,
+            "maxPhotos": 0,
+            "minChoices": 1
+          }
+        ],
+        "id": "BlockTpl01",
+        "label": "STORE EVALUATION",
+        "description": "description STORE EVALUATION "
+      },
+      {
+        "sample": false,
+        "questionTpls": [
+          {
+            "sample": false,
+            "defaultChoiceTpl": null,
+            "choiceTpls": [
+              {
+                "media": null,
+                "label": "ok",
+                "position": 1,
+                "valueFormula": {
+                  "expression": "1"
+                }
+              },
+              {
+                "media": null,
+                "label": "ko",
+                "position": 2,
+                "valueFormula": {
+                  "expression": "0"
+                }
+              }
+            ],
+            "children": [
+              {
+                "sample": false,
+                "defaultChoiceTpl": null,
+                "choiceTpls": [
+                  {
+                    "media": null,
+                    "label": "yes",
+                    "position": 1,
+                    "valueFormula": []
+                  },
+                  {
+                    "media": null,
+                    "label": "no",
+                    "position": 2,
+                    "valueFormula": []
+                  }
+                ],
+                "children": [],
+                "weight": 1,
+                "position": 1,
+                "maxChoices": 1,
+                "category": null,
+                "label": "merchandising is ordered ",
+                "description": null,
+                "externalUrl": null,
+                "alias": "yesno",
+                "readRenderer": null,
+                "writeRenderer": {
+                  "display": "button",
+                  "component": "select"
+                },
+                "validator": [],
+                "trigger": {
+                  "expression": "value == 1"
+                },
+                "hiddenLabel": false,
+                "mandatory": true,
+                "hasComment": true,
+                "maxPhotos": 0,
+                "minChoices": 1
+              }
+            ],
+            "weight": 1,
+            "position": 1,
+            "maxChoices": 1,
+            "category": null,
+            "label": "merchandising is up to date ",
+            "description": null,
+            "externalUrl": null,
+            "alias": "yesno",
+            "readRenderer": null,
+            "writeRenderer": {
+              "display": "button",
+              "component": "select"
+            },
+            "validator": [],
+            "trigger": null,
+            "hiddenLabel": false,
+            "mandatory": true,
+            "hasComment": true,
+            "maxPhotos": 1,
+            "minChoices": 1
+          },
+          {
+            "sample": false,
+            "defaultChoiceTpl": null,
+            "choiceTpls": [
+              {
+                "media": null,
+                "label": "learning module 1",
+                "position": 1,
+                "valueFormula": []
+              },
+              {
+                "media": null,
+                "label": "learning module 2",
+                "position": 2,
+                "valueFormula": []
+              },
+              {
+                "media": null,
+                "label": "learning module 3",
+                "position": 3,
+                "valueFormula": []
+              }
+            ],
+            "children": [],
+            "weight": 1,
+            "position": 2,
+            "maxChoices": 3,
+            "category": null,
+            "label": "the team is trained",
+            "description": null,
+            "externalUrl": null,
+            "alias": "select",
+            "readRenderer": null,
+            "writeRenderer": {
+              "display": "list",
+              "component": "select",
+              "multiselect": true
+            },
+            "validator": [],
+            "trigger": null,
+            "hiddenLabel": false,
+            "mandatory": true,
+            "hasComment": false,
+            "maxPhotos": 0,
+            "minChoices": 1
+          },
+          {
+            "sample": false,
+            "defaultChoiceTpl": null,
+            "choiceTpls": [
+              {
+                "media": null,
+                "label": "photo",
+                "position": 1,
+                "valueFormula": []
+              }
+            ],
+            "children": [],
+            "weight": 0,
+            "position": 3,
+            "maxChoices": 0,
+            "category": null,
+            "label": "take picture of merch implementation ",
+            "description": null,
+            "externalUrl": null,
+            "alias": "none",
+            "readRenderer": null,
+            "writeRenderer": {
+              "component": "photo"
+            },
+            "validator": [],
+            "trigger": null,
+            "hiddenLabel": false,
+            "mandatory": true,
+            "hasComment": false,
+            "maxPhotos": 0,
+            "minChoices": 0
+          }
+        ],
+        "id": "BlockTpl02",
+        "label": "MERCHANDISING EVALUATION ",
+        "description": "description MERCHANDISING EVALUATION"
+      },
+      {
+        "sample": false,
+        "questionTpls": [
+          {
+            "sample": false,
+            "defaultChoiceTpl": null,
+            "choiceTpls": [
+              {
+                "media": null,
+                "label": "yes",
+                "position": 1,
+                "valueFormula": {
+                  "expression": "5"
+                }
+              },
+              {
+                "media": null,
+                "label": "no",
+                "position": 2,
+                "valueFormula": {
+                  "expression": "0"
+                }
+              }
+            ],
+            "children": [],
+            "weight": 1,
+            "position": 1,
+            "maxChoices": 1,
+            "category": null,
+            "label": "Propret\u00e9 de la fa\u00e7ade",
+            "description": null,
+            "externalUrl": null,
+            "alias": "yesno",
+            "readRenderer": null,
+            "writeRenderer": {
+              "display": "button",
+              "component": "select"
+            },
+            "validator": [],
+            "trigger": null,
+            "hiddenLabel": false,
+            "mandatory": true,
+            "hasComment": true,
+            "maxPhotos": 1,
+            "minChoices": 1
+          },
+          {
+            "sample": false,
+            "defaultChoiceTpl": null,
+            "choiceTpls": [
+              {
+                "media": null,
+                "label": "yes",
+                "position": 1,
+                "valueFormula": {
+                  "expression": "5"
+                }
+              },
+              {
+                "media": null,
+                "label": "no",
+                "position": 2,
+                "valueFormula": {
+                  "expression": "0"
+                }
+              }
+            ],
+            "children": [],
+            "weight": 1,
+            "position": 2,
+            "maxChoices": 1,
+            "category": null,
+            "label": "Pr\u00e9sence Stop trottoir et respect de la PLV",
+            "description": null,
+            "externalUrl": null,
+            "alias": "yesno",
+            "readRenderer": null,
+            "writeRenderer": {
+              "display": "button",
+              "component": "select"
+            },
+            "validator": [],
+            "trigger": null,
+            "hiddenLabel": false,
+            "mandatory": true,
+            "hasComment": true,
+            "maxPhotos": 1,
+            "minChoices": 1
+          },
+          {
+            "sample": false,
+            "defaultChoiceTpl": null,
+            "choiceTpls": [
+              {
+                "media": null,
+                "label": "yes",
+                "position": 1,
+                "valueFormula": {
+                  "expression": "5"
+                }
+              },
+              {
+                "media": null,
+                "label": "no",
+                "position": 2,
+                "valueFormula": {
+                  "expression": "0"
+                }
+              }
+            ],
+            "children": [],
+            "weight": 1,
+            "position": 3,
+            "maxChoices": 1,
+            "category": null,
+            "label": "Propret\u00e9 des vitrines",
+            "description": null,
+            "externalUrl": null,
+            "alias": "yesno",
+            "readRenderer": null,
+            "writeRenderer": {
+              "display": "button",
+              "component": "select"
+            },
+            "validator": [],
+            "trigger": null,
+            "hiddenLabel": false,
+            "mandatory": true,
+            "hasComment": true,
+            "maxPhotos": 1,
+            "minChoices": 1
+          },
+          {
+            "sample": false,
+            "defaultChoiceTpl": null,
+            "choiceTpls": [
+              {
+                "media": null,
+                "label": "yes",
+                "position": 1,
+                "valueFormula": {
+                  "expression": "5"
+                }
+              },
+              {
+                "media": null,
+                "label": "no",
+                "position": 2,
+                "valueFormula": {
+                  "expression": "0"
+                }
+              }
+            ],
+            "children": [],
+            "weight": 1,
+            "position": 4,
+            "maxChoices": 1,
+            "category": null,
+            "label": "Respect de la pr\u00e9conisation en cours",
+            "description": null,
+            "externalUrl": null,
+            "alias": "yesno",
+            "readRenderer": null,
+            "writeRenderer": {
+              "display": "button",
+              "component": "select"
+            },
+            "validator": [],
+            "trigger": null,
+            "hiddenLabel": false,
+            "mandatory": true,
+            "hasComment": true,
+            "maxPhotos": 1,
+            "minChoices": 1
+          },
+          {
+            "sample": false,
+            "defaultChoiceTpl": null,
+            "choiceTpls": [
+              {
+                "media": null,
+                "label": "yes",
+                "position": 1,
+                "valueFormula": {
+                  "expression": "5"
+                }
+              },
+              {
+                "media": null,
+                "label": "no",
+                "position": 2,
+                "valueFormula": {
+                  "expression": "0"
+                }
+              }
+            ],
+            "children": [],
+            "weight": 1,
+            "position": 5,
+            "maxChoices": 1,
+            "category": null,
+            "label": "Respect du positionnement de PLV \/ Stickers",
+            "description": null,
+            "externalUrl": null,
+            "alias": "yesno",
+            "readRenderer": null,
+            "writeRenderer": {
+              "display": "button",
+              "component": "select"
+            },
+            "validator": [],
+            "trigger": null,
+            "hiddenLabel": false,
+            "mandatory": true,
+            "hasComment": true,
+            "maxPhotos": 1,
+            "minChoices": 1
+          },
+          {
+            "sample": false,
+            "defaultChoiceTpl": null,
+            "choiceTpls": [
+              {
+                "media": null,
+                "label": "yes",
+                "position": 1,
+                "valueFormula": {
+                  "expression": "5"
+                }
+              },
+              {
+                "media": null,
+                "label": "no",
+                "position": 2,
+                "valueFormula": {
+                  "expression": "0"
+                }
+              }
+            ],
+            "children": [],
+            "weight": 1,
+            "position": 6,
+            "maxChoices": 1,
+            "category": null,
+            "label": "Bon affichage des prix",
+            "description": null,
+            "externalUrl": null,
+            "alias": "yesno",
+            "readRenderer": null,
+            "writeRenderer": {
+              "display": "button",
+              "component": "select"
+            },
+            "validator": [],
+            "trigger": null,
+            "hiddenLabel": false,
+            "mandatory": true,
+            "hasComment": true,
+            "maxPhotos": 1,
+            "minChoices": 1
+          }
+        ],
+        "id": "BlockTpl03",
+        "label": "Ext\u00e9rieur",
+        "description": "Ext\u00e9rieur : propret\u00e9, respect des r\u00e8gles et affichage des prix"
+      },
+      {
+        "sample": false,
+        "questionTpls": [
+          {
+            "sample": false,
+            "defaultChoiceTpl": null,
+            "choiceTpls": [
+              {
+                "media": null,
+                "label": "yes",
+                "position": 1,
+                "valueFormula": {
+                  "expression": "5"
+                }
+              },
+              {
+                "media": null,
+                "label": "no",
+                "position": 2,
+                "valueFormula": {
+                  "expression": "0"
+                }
+              }
+            ],
+            "children": [],
+            "weight": 1,
+            "position": 1,
+            "maxChoices": 1,
+            "category": null,
+            "label": "Respect de la pr\u00e9conisation",
+            "description": null,
+            "externalUrl": null,
+            "alias": "yesno",
+            "readRenderer": null,
+            "writeRenderer": {
+              "display": "button",
+              "component": "select"
+            },
+            "validator": [],
+            "trigger": null,
+            "hiddenLabel": false,
+            "mandatory": true,
+            "hasComment": true,
+            "maxPhotos": 1,
+            "minChoices": 1
+          },
+          {
+            "sample": false,
+            "defaultChoiceTpl": null,
+            "choiceTpls": [
+              {
+                "media": null,
+                "label": "yes",
+                "position": 1,
+                "valueFormula": {
+                  "expression": "5"
+                }
+              },
+              {
+                "media": null,
+                "label": "no",
+                "position": 2,
+                "valueFormula": {
+                  "expression": "0"
+                }
+              }
+            ],
+            "children": [],
+            "weight": 1,
+            "position": 2,
+            "maxChoices": 1,
+            "category": null,
+            "label": "Propret\u00e9 globale des TG",
+            "description": null,
+            "externalUrl": null,
+            "alias": "yesno",
+            "readRenderer": null,
+            "writeRenderer": {
+              "display": "button",
+              "component": "select"
+            },
+            "validator": [],
+            "trigger": null,
+            "hiddenLabel": false,
+            "mandatory": true,
+            "hasComment": true,
+            "maxPhotos": 1,
+            "minChoices": 1
+          },
+          {
+            "sample": false,
+            "defaultChoiceTpl": null,
+            "choiceTpls": [
+              {
+                "media": null,
+                "label": "yes",
+                "position": 1,
+                "valueFormula": {
+                  "expression": "5"
+                }
+              },
+              {
+                "media": null,
+                "label": "no",
+                "position": 2,
+                "valueFormula": {
+                  "expression": "0"
+                }
+              }
+            ],
+            "children": [],
+            "weight": 1,
+            "position": 3,
+            "maxChoices": 1,
+            "category": null,
+            "label": "Respect de la pr\u00e9conisation enseigne & trade",
+            "description": null,
+            "externalUrl": null,
+            "alias": "yesno",
+            "readRenderer": null,
+            "writeRenderer": {
+              "display": "button",
+              "component": "select"
+            },
+            "validator": [],
+            "trigger": null,
+            "hiddenLabel": false,
+            "mandatory": true,
+            "hasComment": true,
+            "maxPhotos": 1,
+            "minChoices": 1
+          },
+          {
+            "sample": false,
+            "defaultChoiceTpl": null,
+            "choiceTpls": [
+              {
+                "media": null,
+                "label": "yes",
+                "position": 1,
+                "valueFormula": {
+                  "expression": "5"
+                }
+              },
+              {
+                "media": null,
+                "label": "no",
+                "position": 2,
+                "valueFormula": {
+                  "expression": "0"
+                }
+              }
+            ],
+            "children": [],
+            "weight": 1,
+            "position": 4,
+            "maxChoices": 1,
+            "category": null,
+            "label": "Bon affichage des prix",
+            "description": null,
+            "externalUrl": null,
+            "alias": "yesno",
+            "readRenderer": null,
+            "writeRenderer": {
+              "display": "button",
+              "component": "select"
+            },
+            "validator": [],
+            "trigger": null,
+            "hiddenLabel": false,
+            "mandatory": true,
+            "hasComment": true,
+            "maxPhotos": 1,
+            "minChoices": 1
+          }
+        ],
+        "id": "BlockTpl04",
+        "label": "Int\u00e9rieur",
+        "description": "Int\u00e9rieur : propret\u00e9, respect des pr\u00e9conisations et affichage des prix"
+      },
+      {
+        "sample": false,
+        "questionTpls": [
+          {
+            "sample": false,
+            "defaultChoiceTpl": null,
+            "choiceTpls": [
+              {
+                "media": null,
+                "label": "yes",
+                "position": 1,
+                "valueFormula": {
+                  "expression": "5"
+                }
+              },
+              {
+                "media": null,
+                "label": "no",
+                "position": 2,
+                "valueFormula": {
+                  "expression": "0"
+                }
+              }
+            ],
+            "children": [],
+            "weight": 1,
+            "position": 1,
+            "maxChoices": 1,
+            "category": null,
+            "label": "Propret\u00e9, rangement et r\u00e9assort des tablettes",
+            "description": null,
+            "externalUrl": null,
+            "alias": "yesno",
+            "readRenderer": null,
+            "writeRenderer": {
+              "display": "button",
+              "component": "select"
+            },
+            "validator": [],
+            "trigger": null,
+            "hiddenLabel": false,
+            "mandatory": true,
+            "hasComment": true,
+            "maxPhotos": 1,
+            "minChoices": 1
+          },
+          {
+            "sample": false,
+            "defaultChoiceTpl": null,
+            "choiceTpls": [
+              {
+                "media": null,
+                "label": "yes",
+                "position": 1,
+                "valueFormula": {
+                  "expression": "5"
+                }
+              },
+              {
+                "media": null,
+                "label": "no",
+                "position": 2,
+                "valueFormula": {
+                  "expression": "0"
+                }
+              }
+            ],
+            "children": [],
+            "weight": 1,
+            "position": 2,
+            "maxChoices": 1,
+            "category": null,
+            "label": "Rangement et propret\u00e9 des tiroirs",
+            "description": null,
+            "externalUrl": null,
+            "alias": "yesno",
+            "readRenderer": null,
+            "writeRenderer": {
+              "display": "button",
+              "component": "select"
+            },
+            "validator": [],
+            "trigger": null,
+            "hiddenLabel": false,
+            "mandatory": true,
+            "hasComment": true,
+            "maxPhotos": 1,
+            "minChoices": 1
+          },
+          {
+            "sample": false,
+            "defaultChoiceTpl": null,
+            "choiceTpls": [
+              {
+                "media": null,
+                "label": "yes",
+                "position": 1,
+                "valueFormula": {
+                  "expression": "5"
+                }
+              },
+              {
+                "media": null,
+                "label": "no",
+                "position": 2,
+                "valueFormula": {
+                  "expression": "0"
+                }
+              }
+            ],
+            "children": [],
+            "weight": 1,
+            "position": 3,
+            "maxChoices": 1,
+            "category": null,
+            "label": "Respect du planogramme",
+            "description": null,
+            "externalUrl": null,
+            "alias": "yesno",
+            "readRenderer": null,
+            "writeRenderer": {
+              "display": "button",
+              "component": "select"
+            },
+            "validator": [],
+            "trigger": null,
+            "hiddenLabel": false,
+            "mandatory": true,
+            "hasComment": true,
+            "maxPhotos": 1,
+            "minChoices": 1
+          },
+          {
+            "sample": false,
+            "defaultChoiceTpl": null,
+            "choiceTpls": [
+              {
+                "media": null,
+                "label": "yes",
+                "position": 1,
+                "valueFormula": {
+                  "expression": "5"
+                }
+              },
+              {
+                "media": null,
+                "label": "no",
+                "position": 2,
+                "valueFormula": {
+                  "expression": "0"
+                }
+              }
+            ],
+            "children": [],
+            "weight": 1,
+            "position": 4,
+            "maxChoices": 1,
+            "category": null,
+            "label": "Actualisation des t\u00eates de gondoles",
+            "description": null,
+            "externalUrl": null,
+            "alias": "yesno",
+            "readRenderer": null,
+            "writeRenderer": {
+              "display": "button",
+              "component": "select"
+            },
+            "validator": [],
+            "trigger": null,
+            "hiddenLabel": false,
+            "mandatory": true,
+            "hasComment": true,
+            "maxPhotos": 1,
+            "minChoices": 1
+          }
+        ],
+        "id": "BlockTpl05",
+        "label": "Planogrammes lin\u00e9aires",
+        "description": "Planogrammes lin\u00e9aires"
+      },
+      {
+        "sample": false,
+        "questionTpls": [
+          {
+            "sample": false,
+            "defaultChoiceTpl": null,
+            "choiceTpls": [
+              {
+                "media": null,
+                "label": "yes",
+                "position": 1,
+                "valueFormula": {
+                  "expression": "5"
+                }
+              },
+              {
+                "media": null,
+                "label": "no",
+                "position": 2,
+                "valueFormula": {
+                  "expression": "0"
+                }
+              }
+            ],
+            "children": [],
+            "weight": 1,
+            "position": 1,
+            "maxChoices": 1,
+            "category": null,
+            "label": "Propret\u00e9 globale",
+            "description": null,
+            "externalUrl": null,
+            "alias": "yesno",
+            "readRenderer": null,
+            "writeRenderer": {
+              "display": "button",
+              "component": "select"
+            },
+            "validator": [],
+            "trigger": null,
+            "hiddenLabel": false,
+            "mandatory": true,
+            "hasComment": true,
+            "maxPhotos": 1,
+            "minChoices": 1
+          },
+          {
+            "sample": false,
+            "defaultChoiceTpl": null,
+            "choiceTpls": [
+              {
+                "media": null,
+                "label": "yes",
+                "position": 1,
+                "valueFormula": {
+                  "expression": "5"
+                }
+              },
+              {
+                "media": null,
+                "label": "no",
+                "position": 2,
+                "valueFormula": {
+                  "expression": "0"
+                }
+              }
+            ],
+            "children": [],
+            "weight": 1,
+            "position": 2,
+            "maxChoices": 1,
+            "category": null,
+            "label": "Rangement global",
+            "description": null,
+            "externalUrl": null,
+            "alias": "yesno",
+            "readRenderer": null,
+            "writeRenderer": {
+              "display": "button",
+              "component": "select"
+            },
+            "validator": [],
+            "trigger": null,
+            "hiddenLabel": false,
+            "mandatory": true,
+            "hasComment": true,
+            "maxPhotos": 1,
+            "minChoices": 1
+          },
+          {
+            "sample": false,
+            "defaultChoiceTpl": null,
+            "choiceTpls": [
+              {
+                "media": null,
+                "label": "yes",
+                "position": 1,
+                "valueFormula": {
+                  "expression": "5"
+                }
+              },
+              {
+                "media": null,
+                "label": "no",
+                "position": 2,
+                "valueFormula": {
+                  "expression": "0"
+                }
+              }
+            ],
+            "children": [],
+            "weight": 1,
+            "position": 3,
+            "maxChoices": 1,
+            "category": null,
+            "label": "Pr\u00e9sentoirs \/ Trade respect de la pr\u00e9conisation et date de mise en place",
+            "description": null,
+            "externalUrl": null,
+            "alias": "yesno",
+            "readRenderer": null,
+            "writeRenderer": {
+              "display": "button",
+              "component": "select"
+            },
+            "validator": [],
+            "trigger": null,
+            "hiddenLabel": false,
+            "mandatory": true,
+            "hasComment": true,
+            "maxPhotos": 1,
+            "minChoices": 1
+          },
+          {
+            "sample": false,
+            "defaultChoiceTpl": null,
+            "choiceTpls": [
+              {
+                "media": null,
+                "label": "yes",
+                "position": 1,
+                "valueFormula": {
+                  "expression": "5"
+                }
+              },
+              {
+                "media": null,
+                "label": "no",
+                "position": 2,
+                "valueFormula": {
+                  "expression": "0"
+                }
+              }
+            ],
+            "children": [],
+            "weight": 1,
+            "position": 4,
+            "maxChoices": 1,
+            "category": null,
+            "label": "Bonne mise en place de l'espace cadeau",
+            "description": null,
+            "externalUrl": null,
+            "alias": "yesno",
+            "readRenderer": null,
+            "writeRenderer": {
+              "display": "button",
+              "component": "select"
+            },
+            "validator": [],
+            "trigger": null,
+            "hiddenLabel": false,
+            "mandatory": true,
+            "hasComment": true,
+            "maxPhotos": 1,
+            "minChoices": 1
+          }
+        ],
+        "id": "BlockTpl06",
+        "label": "Caisses",
+        "description": "Caisses"
+      },
+      {
+        "sample": false,
+        "questionTpls": [
+          {
+            "sample": false,
+            "defaultChoiceTpl": null,
+            "choiceTpls": [
+              {
+                "media": null,
+                "label": "yes",
+                "position": 1,
+                "valueFormula": {
+                  "expression": "5"
+                }
+              },
+              {
+                "media": null,
+                "label": "no",
+                "position": 2,
+                "valueFormula": {
+                  "expression": "0"
+                }
+              }
+            ],
+            "children": [],
+            "weight": 1,
+            "position": 1,
+            "maxChoices": 1,
+            "category": null,
+            "label": "Propret\u00e9 globale",
+            "description": null,
+            "externalUrl": null,
+            "alias": "yesno",
+            "readRenderer": null,
+            "writeRenderer": {
+              "display": "button",
+              "component": "select"
+            },
+            "validator": [],
+            "trigger": null,
+            "hiddenLabel": false,
+            "mandatory": true,
+            "hasComment": true,
+            "maxPhotos": 1,
+            "minChoices": 1
+          },
+          {
+            "sample": false,
+            "defaultChoiceTpl": null,
+            "choiceTpls": [
+              {
+                "media": null,
+                "label": "yes",
+                "position": 1,
+                "valueFormula": {
+                  "expression": "5"
+                }
+              },
+              {
+                "media": null,
+                "label": "no",
+                "position": 2,
+                "valueFormula": {
+                  "expression": "0"
+                }
+              }
+            ],
+            "children": [],
+            "weight": 1,
+            "position": 2,
+            "maxChoices": 1,
+            "category": null,
+            "label": "Rangement global",
+            "description": null,
+            "externalUrl": null,
+            "alias": "yesno",
+            "readRenderer": null,
+            "writeRenderer": {
+              "display": "button",
+              "component": "select"
+            },
+            "validator": [],
+            "trigger": null,
+            "hiddenLabel": false,
+            "mandatory": true,
+            "hasComment": true,
+            "maxPhotos": 1,
+            "minChoices": 1
+          }
+        ],
+        "id": "BlockTpl07",
+        "label": "R\u00e9serve",
+        "description": "R\u00e9serve"
+      }
+    ]
+  },
+  {
+    "Questionnaire\\QuestionnaireTpl": [
+      {
+        "blockTpls": [
+          "localid:BlockTpl01",
+          "localid:BlockTpl02"
+        ],
+        "sample": false,
+        "id": "QuestionnaireTpl01",
+        "label": "Store Questionnaire",
+        "description": "description Store Questionnaire",
+        "state": "SUBMITTED"
+      },
+      {
+        "blockTpls": [
+          "localid:BlockTpl03",
+          "localid:BlockTpl04",
+          "localid:BlockTpl05",
+          "localid:BlockTpl06",
+          "localid:BlockTpl07"
+        ],
+        "sample": false,
+        "id": "QuestionnaireTpl02",
+        "label": "Visual Merchandising",
+        "description": "Questionnaire Visual Merchandising",
+        "state": "SUBMITTED"
+      }
+    ]
+  },
+  {
+    "Folder\\FolderTpl": [
+      {
+        "questionnaireTpls": [
+          "localid:QuestionnaireTpl01"
+        ],
+        "minFolders": 1,
+        "maxFolders": 1,
+        "id": "FolderTpl01",
+        "calendars": [
+          "localid:Calendar01"
+        ],
+        "label": "Store visit",
+        "description": "Description of folder store visit",
+        "permissions": [
+          {
+            "right": "CREATE",
+            "targetRole": "role:Store",
+            "userRole": "role:StoreManager"
+          },
+          {
+            "right": "VALIDATE",
+            "targetRole": "role:Store",
+            "userRole": "role:RegionManager"
+          },
+          {
+            "right": "VIEW",
+            "targetRole": "role:Store",
+            "userRole": "role:StoreManager"
+          },
+          {
+            "right": "VIEW",
+            "targetRole": "role:Store",
+            "userRole": "role:CountryManager"
+          },
+          {
+            "right": "VIEW",
+            "targetRole": "role:Store",
+            "userRole": "role:DistrictManager"
+          },
+          {
+            "right": "VIEW",
+            "targetRole": "role:Store",
+            "userRole": "role:RegionManager"
+          },
+          {
+            "right": "STATS",
+            "targetRole": "role:Store",
+            "userRole": "role:DistrictManager"
+          },
+          {
+            "right": "STATS",
+            "targetRole": "role:Store",
+            "userRole": "role:RegionManager"
+          },
+          {
+            "right": "STATS",
+            "targetRole": "role:Store",
+            "userRole": "role:StoreManager"
+          },
+          {
+            "right": "STATS",
+            "targetRole": "role:Store",
+            "userRole": "role:CountryManager"
+          }
+        ],
+        "state": "SUBMITTED"
+      },
+      {
+        "questionnaireTpls": [
+          "localid:QuestionnaireTpl02"
+        ],
+        "minFolders": 1,
+        "maxFolders": 1,
+        "id": "FolderTpl02",
+        "calendars": [
+          "localid:Calendar01"
+        ],
+        "label": "Visual Merchandising",
+        "description": "Visual Merchandising",
+        "permissions": [
+          {
+            "right": "CREATE",
+            "targetRole": "role:Store",
+            "userRole": "role:StoreManager"
+          },
+          {
+            "right": "VALIDATE",
+            "targetRole": "role:Store",
+            "userRole": "role:StoreManager"
+          },
+          {
+            "right": "VIEW",
+            "targetRole": "role:Store",
+            "userRole": "role:StoreManager"
+          },
+          {
+            "right": "VIEW",
+            "targetRole": "role:Store",
+            "userRole": "role:CountryManager"
+          },
+          {
+            "right": "STATS",
+            "targetRole": "role:Store",
+            "userRole": "role:StoreManager"
+          },
+          {
+            "right": "STATS",
+            "targetRole": "role:Store",
+            "userRole": "role:CountryManager"
+          }
+        ],
+        "state": "SUBMITTED"
+      }
+    ]
+  }
+]

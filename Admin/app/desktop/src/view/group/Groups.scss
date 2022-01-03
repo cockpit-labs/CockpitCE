@@ -1,0 +1,18 @@
+.groupstree {
+    /* hide expand icon in tree when we are sure there is no child*/
+    .x-treecell:not(.x-expandable) .x-expander-el {
+        cursor: auto;
+        &:before {
+            content: none;
+        }
+    }
+    .x-treecell.x-no-icon .x-icon-el:before {
+        content: 'people';
+    }
+    .x-treecell.x-no-icon.x-expanded .x-icon-el:before {
+        content: 'people_outline';
+    }
+    .x-panelheader .x-tool .x-icon-el {
+        color: var(--base-foreground-color);
+    }
+}

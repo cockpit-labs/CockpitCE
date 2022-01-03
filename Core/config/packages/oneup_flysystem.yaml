@@ -1,0 +1,24 @@
+services:
+  League\Flysystem\FilesystemInterface: '@oneup_flysystem.mediaLocal_filesystem'
+
+oneup_flysystem:
+  adapters:
+    storageLocal:
+      local:
+        directory: '%env(resolve:STORAGEDIR)%/'
+        lazy: true
+        permissions:
+          dir:
+            private: 0700
+            public: 0755
+          file:
+            private: 0600
+            public: 0644
+
+  filesystems:
+    mediaLocal:
+      adapter: storageLocal
+      cache: ~
+      alias: ~
+      mount: mediaLocal
+      visibility: public

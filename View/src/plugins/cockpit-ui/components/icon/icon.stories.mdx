@@ -1,0 +1,33 @@
+import { Meta, Props, Story, Preview } from '@storybook/addon-docs/blocks'
+
+import SIcon from './SIcon'
+
+<Meta 
+  title="Components/Icon" 
+  component={SIcon}
+/>
+
+# Icon
+
+<Preview>
+  <Story name="Default">
+    {{
+      components: { SIcon },
+      template: '<s-icon name="home" />'
+    }}
+  </Story>
+  <Story name="With fixed width">
+    {{
+      components: { SIcon },
+      template: `
+        <ul>
+          <li><s-icon name="home" fw /> Home</li>
+          <li><s-icon name="users" fw /> Users</li>
+          <li><s-icon name="plus" fw /> Plus</li>
+        </ul>
+      `
+    }}
+  </Story>
+</Preview>
+
+<Props of={SIcon} />

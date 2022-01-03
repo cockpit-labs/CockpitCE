@@ -1,0 +1,17 @@
+.properties {
+    .x-toolbar-body-el {
+        padding: 4px;
+    }
+    .groups-tree-list {
+        .x-treelist-item-icon:before {
+            font-family: 'Material Icons';
+            content: '\e835';
+        }
+        .x-treelist-item-selected > .x-treelist-row {
+            background-color: $gridrow-selected-background-color;
+            .x-treelist-item-icon:before {
+                content: '\e834';
+            }
+        }
+    }
+}

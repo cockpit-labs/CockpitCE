@@ -1,0 +1,98 @@
+.c-base-view {
+  & > .x-body-el {
+    border: 1px solid white;
+  }
+  .c-empty-text {
+    font-size: larger;
+  }
+}
+.c-properties {
+  & .x-panelheader {
+    min-height: 40px;
+  }
+  /* fix check not visible */
+  .x-combobox .x-chip .x-icon-el {
+    display: inline-flex;
+    &:before {
+      font-size: medium;
+    }
+  }
+}
+.c-list {
+  width: 270px;
+  color: var(--color-p-700);
+  .x-panelheader {
+    min-height: 40px;
+    border: none;
+  }
+
+  .x-dataview-item {
+    min-height: 44px;
+    font-size: 14px;
+    line-height: 44px;
+    padding-left: 12px;
+    cursor: pointer;
+    white-space: nowrap;
+    display: flex;
+
+    .c-text:before {
+      content: '\f07b'; /* fa-folder icon */
+    }
+    &.x-hovered:before, &.x-selected:before {
+        content: " ";
+        position: absolute;
+        display: block;
+        left: 2px;
+        top: 0;
+        width: 6px;
+        height: 100%;
+    }
+
+    &.x-hovered {
+      background-color: rgba(0, 0, 0, 0.03);
+      &:before {
+        background-color: $accent-light-color;
+      }
+    }
+
+    &.x-selected {
+      background-color: rgba(0, 0, 0, 0.1);
+      &:before {
+        background-color: $accent-pressed-color;
+      }
+      .c-text:before {
+        content: '\f07c'; /* fa-folder-open icon */
+      }
+    }
+
+    .c-text {
+      position: relative;
+      padding-left: 24px;
+      flex: auto;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .c-text:before {
+      font-size: 18px;
+      position: absolute;
+      left: 0;
+    }
+    &.x-dirty:after {
+      color: red;
+      width: 14px;
+      height: 14px;
+      content: "\e603";
+      font-family: ExtJS;
+      font-size: 14px;
+      line-height: 1;
+      position: absolute;
+      top: 1px;
+      right: 1px;
+    }
+    .c-clone-btn, .c-delete-btn {
+      width: 36px;
+      text-align: center;
+      flex: none;
+    }
+  }
+}

@@ -1,0 +1,36 @@
+.c-choiceedit {
+  .choice-image {
+    padding-top: 16px;
+    .x-innerhtml {
+      border: 2px dashed var(--base-color);
+      border-radius: 4px;
+    }
+  }
+  .choice-media {
+    min-height: 80px;
+    min-width: 80px;
+    max-height: 160px;
+    height: auto;
+    max-width: 160px;
+    width: auto;
+  }
+  .x-panelresizer {
+    /* force z-index else resizers are under buttons body */
+    z-index: 1;
+  }
+  .x-filefield {
+    margin: auto;
+    .x-body-wrap-el {
+      width: auto;
+    }
+    .x-body-el {
+      flex: none;
+    }
+    .x-label-el {
+      display: none;
+    }
+    .x-before-input-el {
+      display: none;
+    }
+  }
+}

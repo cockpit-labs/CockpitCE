@@ -1,0 +1,156 @@
+<!DOCTYPE HTML>
+<html lang="en" translate="no">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google" content="notranslate">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=10, user-scalable=yes">
+    <title>Cockpit Studio</title>
+    <!-- Use script without src to load it later -->
+    <script id="microloader" data-app="9bf79e1d-0c31-47f7-9d71-aeed7771cbc0" type="text/javascript"></script>
+      <style>
+      html {
+        height: 100%;
+      }
+      body.splash {
+        margin: 0;
+        background-color: #0A5E71;
+        height: 100%;
+      }
+      #error-ct { text-align: center; }
+      #error-msg { color: #e4e4e4; line-height: 1.5; }
+      #error-btn { padding: 5px 10px; border-radius: 6px; }
+      #error-btn.visible { display: inline; }
+      #loader {
+        background-color: #0A5E71; 
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .visible { display:block; }
+      .hidden { display:none; }
+    </style>
+  </head>
+  <body class="splash">
+    <!-- Keycloak is used for authentication. See https://www.keycloak.org/ -->
+    <!-- Cockpit Core serves the keycloak adapter file -->
+    <script type="text/javascript" src="/auth/js/keycloak.js"></script>
+    <script>
+      (function() {
+        // Cockpit Core serves the keycloak adapter file
+        // Load config file
+        var request = new XMLHttpRequest();
+        request.open('GET', '/api/configs/studio', true);
+        request.onload = function() {
+          if (request.status >= 200 && request.status < 400) {
+            try {
+              var config = JSON.parse(request.responseText);
+              /* Cockpit Core serves the keycloak adapter configuration */
+              window.keycloak = Keycloak(config.keycloak);
+              keycloak.init({
+                onLoad: 'login-required',
+                enableLogging: true,
+                promiseType: 'native'
+              }).then(function(authenticated) {
+                if (authenticated) {
+                  done();
+                } else {
+                  error("Authentication failed !");
+                }
+              }).catch(function() {
+                error("Authentication provider failed to initialize !");
+              });
+            } catch (e) {
+              error("Configuration parsing failed !");
+              console.error(e);
+            }
+          } else {
+              error("Configuration request failed ! (" + request.status + " - " + request.statusText + ")");
+          }
+        };
+        request.send();
+      }());
+
+      function error(msg) {
+        document.getElementById('loader').style.display = "none";
+        var domEl = document.getElementById('error-ct');
+        if (domEl) {
+          domEl.className = 'visible';
+          domEl = document.getElementById('error-msg');
+          domEl.innerText = msg;
+        }
+      }
+
+      function done() {
+        // set window name
+        window.name = 'Cockpit-Studio';
+        // loader will be removed by app
+        var loader = document.getElementById('microloader');
+        loader.onerror = function() {
+          error("Failed to load microloader !");
+          document.getElementById('loader').remove();
+        };
+        loader.src = 'microloader.js';
+      }
+    </script>
+
+    <div id="loader">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="117px" height="195px" viewBox="-50 0 200 100" preserveAspectRatio="xMidYMid" style="margin: auto; background: rgba(0, 0, 0, .1) none repeat scroll 0% 0%; display: block;">
+        <g transform="rotate(0 50 50)">
+          <rect x="47.5" y="20.5" rx="1.17" ry="1.17" width="5" height="13" fill="#ffffff">
+            <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="0.6578947368421053s" begin="-0.6030701754385964s" repeatCount="indefinite"/>
+          </rect>
+        </g><g transform="rotate(30 50 50)">
+          <rect x="47.5" y="20.5" rx="1.17" ry="1.17" width="5" height="13" fill="#ffffff">
+            <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="0.6578947368421053s" begin="-0.5482456140350876s" repeatCount="indefinite"/>
+          </rect>
+        </g><g transform="rotate(60 50 50)">
+          <rect x="47.5" y="20.5" rx="1.17" ry="1.17" width="5" height="13" fill="#ffffff">
+            <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="0.6578947368421053s" begin="-0.49342105263157887s" repeatCount="indefinite"/>
+          </rect>
+        </g><g transform="rotate(90 50 50)">
+          <rect x="47.5" y="20.5" rx="1.17" ry="1.17" width="5" height="13" fill="#ffffff">
+            <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="0.6578947368421053s" begin="-0.43859649122807015s" repeatCount="indefinite"/>
+          </rect>
+        </g><g transform="rotate(120 50 50)">
+          <rect x="47.5" y="20.5" rx="1.17" ry="1.17" width="5" height="13" fill="#ffffff">
+            <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="0.6578947368421053s" begin="-0.3837719298245614s" repeatCount="indefinite"/>
+          </rect>
+        </g><g transform="rotate(150 50 50)">
+          <rect x="47.5" y="20.5" rx="1.17" ry="1.17" width="5" height="13" fill="#ffffff">
+            <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="0.6578947368421053s" begin="-0.3289473684210526s" repeatCount="indefinite"/>
+          </rect>
+        </g><g transform="rotate(180 50 50)">
+          <rect x="47.5" y="20.5" rx="1.17" ry="1.17" width="5" height="13" fill="#ffffff">
+            <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="0.6578947368421053s" begin="-0.2741228070175438s" repeatCount="indefinite"/>
+          </rect>
+        </g><g transform="rotate(210 50 50)">
+          <rect x="47.5" y="20.5" rx="1.17" ry="1.17" width="5" height="13" fill="#ffffff">
+            <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="0.6578947368421053s" begin="-0.21929824561403508s" repeatCount="indefinite"/>
+          </rect>
+        </g><g transform="rotate(240 50 50)">
+          <rect x="47.5" y="20.5" rx="1.17" ry="1.17" width="5" height="13" fill="#ffffff">
+            <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="0.6578947368421053s" begin="-0.1644736842105263s" repeatCount="indefinite"/>
+          </rect>
+        </g><g transform="rotate(270 50 50)">
+          <rect x="47.5" y="20.5" rx="1.17" ry="1.17" width="5" height="13" fill="#ffffff">
+            <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="0.6578947368421053s" begin="-0.10964912280701754s" repeatCount="indefinite"/>
+          </rect>
+        </g><g transform="rotate(300 50 50)">
+          <rect x="47.5" y="20.5" rx="1.17" ry="1.17" width="5" height="13" fill="#ffffff">
+            <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="0.6578947368421053s" begin="-0.05482456140350877s" repeatCount="indefinite"/>
+          </rect>
+        </g><g transform="rotate(330 50 50)">
+          <rect x="47.5" y="20.5" rx="1.17" ry="1.17" width="5" height="13" fill="#ffffff">
+            <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="0.6578947368421053s" begin="0s" repeatCount="indefinite"/>
+          </rect>
+        </g>
+      </svg>
+    </div>
+    <div id="error-ct" class="hidden">
+      <div id="error-msg"></div>
+      <button onclick="window.location.reload(true);">Retry</button>
+    </div>
+  </body>
+</html>

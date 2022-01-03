@@ -1,0 +1,68 @@
+.c-folders {
+  .c-list .x-paneltitle.x-paneltool .x-icon-el:before {
+    font-size: 22px;
+  }
+  .c-properties .x-formpanel-body-el {
+    padding: 0;
+    .x-titlebar-body-el {
+      min-height: 40px;
+      padding-left: 16px;
+    }
+    .x-title {
+      padding-left: 12px;
+    }
+    .x-containerfield {
+      padding-left: 6px;
+      padding-right: 10px;
+      .x-body-wrap-el {
+        padding-top: 2px;
+      }
+    }
+  }
+
+  .x-toolbar-body-el {
+    min-height: 40px;
+    .x-button .x-inner-el {
+      padding: 8px;
+    }
+  }
+
+  .c-permission-invalid .x-gridcell-body-el:after {
+      content: ' ';
+      position: absolute;
+      border-bottom: 2px solid var(--alert-color);
+      bottom: 0px;
+      width: calc(100% - 2px);
+      left: 0;
+  }
+}
+/*
+.blocks-dialog.x-maximized {
+  width: calc(100% - 20px) !important;
+  height: calc(100% - 20px) !important;
+  left: 10px !important;
+  top: 10px !important;
+  .x-dialog-body-el {
+    padding: 0;
+  }
+}
+*/
+
+  .x-treelist-item-selected .x-treelist-row:before {
+    background-color: $accent-pressed-color;
+  }
+  .x-treelist-row-over:before {
+    background-color: $accent-light-color;
+  }
+  .x-treelist-item.dirty-true .x-treelist-row:after {
+    
+  }
+  /*
+  .x-treelist-item-expanded {
+    background-color: darken($base-color, 2%);
+  }
+  
+  .x-treelist-item-leaf .x-treelist-row-over:before {
+    height: 90%;
+    left: 20px;
+  }*/

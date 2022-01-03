@@ -1,0 +1,33 @@
+.blockstree {
+  /* mark grid as dirty for any field of model, not especially the first cell */
+  .x-gridrow.x-dirty .x-treecell:before {
+      color: red;
+      width: 14px;
+      height: 14px;
+      content: "\e602";
+      font-family: ExtJS;
+      font-size: 18px;
+      line-height: 1;
+      position: absolute;
+      top: 0;
+      left: 0;
+  }
+  .x-treecell .x-icon-el.fa-cube:before {
+    font-size: 14px;
+  }
+  .x-selected {
+    .x-icon-el, .x-expander-el {
+      color: $gridrow-selected-color;
+    }
+  }
+
+  .x-treecell.c-row-hasfake-true.x-collapsed .x-expander-el:before {
+    /* hide expand icon for node that have only a fake child */
+    color: transparent;
+  }
+  .c-row-isfake-true {
+    .x-icon-el, .x-gridcell-body-el {
+      display:none;
+    }
+  }
+}

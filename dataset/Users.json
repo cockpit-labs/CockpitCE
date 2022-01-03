@@ -1,0 +1,796 @@
+[
+  {
+    "Role": [
+      {
+        "id": "Store",
+        "name": "Store",
+        "description": "Role for Store Groups"
+      },
+      {
+        "id": "CountryManager",
+        "name": "CountryManager",
+        "description": "Role for Country Managers"
+      },
+      {
+        "id": "RegionManager",
+        "name": "RegionManager",
+        "description": "Role for Region Managers"
+      },
+      {
+        "id": "StoreManager",
+        "name": "StoreManager",
+        "description": "Role for Store Managers"
+      },
+      {
+        "id": "DistrictManager",
+        "name": "DistrictManager",
+        "description": "Role for District Managers"
+      }
+    ]
+  },
+  {
+    "Group": [
+      {
+        "id": "Group01",
+        "label": "Functions",
+        "path": "\/Functions",
+        "roles": [
+          "role:View",
+          "role:Mobile",
+          "role:User",
+          "role:Dashboard"
+        ],
+        "attributes": []
+      },
+      {
+        "id": "Group02",
+        "label": "Country Head",
+        "path": "\/Functions\/Country Head",
+        "parent": "localid:Group01",
+        "roles": [
+          "role:CountryManager"
+        ],
+        "attributes": []
+      },
+      {
+        "id": "Group03",
+        "label": "District Manager",
+        "path": "\/Functions\/District Manager",
+        "parent": "localid:Group01",
+        "roles": [
+          "role:DistrictManager"
+        ],
+        "attributes": []
+      },
+      {
+        "id": "Group04",
+        "label": "Regional Director",
+        "path": "\/Functions\/Regional Director",
+        "parent": "localid:Group01",
+        "roles": [
+          "role:RegionManager"
+        ],
+        "attributes": []
+      },
+      {
+        "id": "Group05",
+        "label": "Store Manager",
+        "path": "\/Functions\/Store Manager",
+        "parent": "localid:Group01",
+        "roles": [
+          "role:StoreManager"
+        ],
+        "attributes": []
+      },
+      {
+        "id": "Group06",
+        "label": "Superuser",
+        "path": "\/Functions\/Superuser",
+        "parent": "localid:Group01",
+        "roles": [
+          "role:Admin",
+          "role:Studio"
+        ],
+        "attributes": []
+      },
+      {
+        "id": "Group07",
+        "label": "Network",
+        "path": "\/Network",
+        "roles": [],
+        "attributes": []
+      },
+      {
+        "id": "Group08",
+        "label": "COUNTRY",
+        "path": "\/Network\/COUNTRY",
+        "parent": "localid:Group07",
+        "roles": [],
+        "attributes": []
+      },
+      {
+        "id": "Group09",
+        "label": "REGION-NORTH",
+        "path": "\/Network\/COUNTRY\/REGION-NORTH",
+        "parent": "localid:Group08",
+        "roles": [],
+        "attributes": []
+      },
+      {
+        "id": "Group10",
+        "label": "DISTRICT-NORTHEAST",
+        "path": "\/Network\/COUNTRY\/REGION-NORTH\/DISTRICT-NORTHEAST",
+        "parent": "localid:Group09",
+        "roles": [],
+        "attributes": []
+      },
+      {
+        "id": "Group11",
+        "label": "Store-11",
+        "path": "\/Network\/COUNTRY\/REGION-NORTH\/DISTRICT-NORTHEAST\/Store-11",
+        "parent": "localid:Group10",
+        "roles": [
+          "role:Store"
+        ],
+        "attributes": [
+          {
+            "label": "address",
+            "position": 100,
+            "type": "string",
+            "value": "22 boulevard du Montparnasse, 75006 PARIS"
+          },
+          {
+            "label": "lat",
+            "position": 101,
+            "type": "float",
+            "value": "48.84542412411833"
+          },
+          {
+            "label": "long",
+            "position": 102,
+            "type": "float",
+            "value": "2.3193065491110523"
+          },
+          {
+            "label": "director",
+            "position": 103,
+            "type": "string",
+            "value": "Laurent RENZO"
+          },
+          {
+            "label": "telephone",
+            "position": 104,
+            "type": "string",
+            "value": "01 44 55 66 77"
+          },
+          {
+            "label": "photo",
+            "position": 105,
+            "type": "string",
+            "value": "https:\/\/pix6.agoda.net\/hotelImages\/414\/4140\/4140_17060105420053375323.jpg?s=1024x768"
+          },
+          {
+            "label": "CA mois en cours (Millions €) ",
+            "position": 1,
+            "type": "float",
+            "value": "82,5"
+          },
+          {
+            "label": "CA mensuel vs Y-1 ",
+            "position": 2,
+            "type": "string",
+            "value": "1.21"
+          },
+          {
+            "label": "Part de marché sur zone vs Y-1 ",
+            "position": 3,
+            "type": "string",
+            "value": "3.0%"
+          },
+          {
+            "label": "% des ventes vêtements",
+            "position": 4,
+            "type": "string",
+            "value": "6.10%"
+          },
+          {
+            "label": "% des ventes chaussures",
+            "position": 5,
+            "type": "string",
+            "value": "27%"
+          },
+          {
+            "label": "% des ventes accessoires",
+            "position": 6,
+            "type": "string",
+            "value": "7%"
+          },
+          {
+            "label": "rapport d'incidents",
+            "position": 7,
+            "type": "string",
+            "value": "rideau métallique en panne"
+          }
+        ]
+      },
+      {
+        "id": "Group12",
+        "label": "Store-12",
+        "path": "\/Network\/COUNTRY\/REGION-NORTH\/DISTRICT-NORTHEAST\/Store-12",
+        "parent": "localid:Group10",
+        "roles": [
+          "role:Store"
+        ],
+        "attributes": []
+      },
+      {
+        "id": "Group13",
+        "label": "Store-13",
+        "path": "\/Network\/COUNTRY\/REGION-NORTH\/DISTRICT-NORTHEAST\/Store-13",
+        "parent": "localid:Group10",
+        "roles": [
+          "role:Store"
+        ],
+        "attributes": []
+      },
+      {
+        "id": "Group14",
+        "label": "Store-14",
+        "path": "\/Network\/COUNTRY\/REGION-NORTH\/DISTRICT-NORTHEAST\/Store-14",
+        "parent": "localid:Group10",
+        "roles": [
+          "role:Store"
+        ],
+        "attributes": []
+      },
+      {
+        "id": "Group15",
+        "label": "DISTRICT-NORTHWEST",
+        "path": "\/Network\/COUNTRY\/REGION-NORTH\/DISTRICT-NORTHWEST",
+        "parent": "localid:Group09",
+        "roles": [],
+        "attributes": []
+      },
+      {
+        "id": "Group16",
+        "label": "Store-21",
+        "path": "\/Network\/COUNTRY\/REGION-NORTH\/DISTRICT-NORTHWEST\/Store-21",
+        "parent": "localid:Group15",
+        "roles": [
+          "role:Store"
+        ],
+        "attributes": []
+      },
+      {
+        "id": "Group17",
+        "label": "Store-22",
+        "path": "\/Network\/COUNTRY\/REGION-NORTH\/DISTRICT-NORTHWEST\/Store-22",
+        "parent": "localid:Group15",
+        "roles": [
+          "role:Store"
+        ],
+        "attributes": [
+          {
+            "label": "address",
+            "position": 100,
+            "type": "string",
+            "value": "22 boulevard du Montparnasse, 75006 PARIS"
+          },
+          {
+            "label": "lat",
+            "position": 101,
+            "type": "float",
+            "value": "48.84542412411833"
+          },
+          {
+            "label": "long",
+            "position": 102,
+            "type": "float",
+            "value": "2.3193065491110523"
+          },
+          {
+            "label": "director",
+            "position": 103,
+            "type": "string",
+            "value": "Laurent RENZO"
+          },
+          {
+            "label": "telephone",
+            "position": 104,
+            "type": "string",
+            "value": "01 44 55 66 77"
+          },
+          {
+            "label": "photo",
+            "position": 105,
+            "type": "string",
+            "value": "https:\/\/pix6.agoda.net\/hotelImages\/414\/4140\/4140_17060105420053375323.jpg?s=1024x768"
+          },
+          {
+            "label": "CA mois en cours (Millions €) ",
+            "position": 1,
+            "type": "float",
+            "value": "82,5"
+          },
+          {
+            "label": "CA mensuel vs Y-1 ",
+            "position": 2,
+            "type": "string",
+            "value": "1.21"
+          },
+          {
+            "label": "Part de marché sur zone vs Y-1 ",
+            "position": 3,
+            "type": "string",
+            "value": "3.0%"
+          },
+          {
+            "label": "% des ventes vêtements",
+            "position": 4,
+            "type": "string",
+            "value": "6.10%"
+          },
+          {
+            "label": "% des ventes chaussures",
+            "position": 5,
+            "type": "string",
+            "value": "27%"
+          },
+          {
+            "label": "% des ventes accessoires",
+            "position": 6,
+            "type": "string",
+            "value": "7%"
+          },
+          {
+            "label": "rapport d'incidents",
+            "position": 7,
+            "type": "string",
+            "value": "rideau métallique en panne"
+          }
+        ]
+      },
+      {
+        "id": "Group18",
+        "label": "Store-23",
+        "path": "\/Network\/COUNTRY\/REGION-NORTH\/DISTRICT-NORTHWEST\/Store-23",
+        "parent": "localid:Group15",
+        "roles": [
+          "role:Store"
+        ],
+        "attributes": []
+      },
+      {
+        "id": "Group19",
+        "label": "Store-24",
+        "path": "\/Network\/COUNTRY\/REGION-NORTH\/DISTRICT-NORTHWEST\/Store-24",
+        "parent": "localid:Group15",
+        "roles": [
+          "role:Store"
+        ],
+        "attributes": []
+      },
+      {
+        "id": "Group20",
+        "label": "REGION-SOUTH",
+        "path": "\/Network\/COUNTRY\/REGION-SOUTH",
+        "parent": "localid:Group08",
+        "roles": [],
+        "attributes": []
+      },
+      {
+        "id": "Group21",
+        "label": "DISTRICT-SOUTHEAST",
+        "path": "\/Network\/COUNTRY\/REGION-SOUTH\/DISTRICT-SOUTHEAST",
+        "parent": "localid:Group20",
+        "roles": [],
+        "attributes": []
+      },
+      {
+        "id": "Group22",
+        "label": "Store-31",
+        "path": "\/Network\/COUNTRY\/REGION-SOUTH\/DISTRICT-SOUTHEAST\/Store-31",
+        "parent": "localid:Group21",
+        "roles": [
+          "role:Store"
+        ],
+        "attributes": []
+      },
+      {
+        "id": "Group23",
+        "label": "Store-32",
+        "path": "\/Network\/COUNTRY\/REGION-SOUTH\/DISTRICT-SOUTHEAST\/Store-32",
+        "parent": "localid:Group21",
+        "roles": [
+          "role:Store"
+        ],
+        "attributes": []
+      },
+      {
+        "id": "Group24",
+        "label": "Store-33",
+        "path": "\/Network\/COUNTRY\/REGION-SOUTH\/DISTRICT-SOUTHEAST\/Store-33",
+        "parent": "localid:Group21",
+        "roles": [
+          "role:Store"
+        ],
+        "attributes": []
+      },
+      {
+        "id": "Group25",
+        "label": "Store-34",
+        "path": "\/Network\/COUNTRY\/REGION-SOUTH\/DISTRICT-SOUTHEAST\/Store-34",
+        "parent": "localid:Group21",
+        "roles": [
+          "role:Store"
+        ],
+        "attributes": []
+      },
+      {
+        "id": "Group26",
+        "label": "DISTRICT-SOUTHWEST",
+        "path": "\/Network\/COUNTRY\/REGION-SOUTH\/DISTRICT-SOUTHWEST",
+        "parent": "localid:Group20",
+        "roles": [],
+        "attributes": []
+      },
+      {
+        "id": "Group27",
+        "label": "Store-41",
+        "path": "\/Network\/COUNTRY\/REGION-SOUTH\/DISTRICT-SOUTHWEST\/Store-41",
+        "parent": "localid:Group26",
+        "roles": [
+          "role:Store"
+        ],
+        "attributes": []
+      },
+      {
+        "id": "Group28",
+        "label": "Store-42",
+        "path": "\/Network\/COUNTRY\/REGION-SOUTH\/DISTRICT-SOUTHWEST\/Store-42",
+        "parent": "localid:Group26",
+        "roles": [
+          "role:Store"
+        ],
+        "attributes": []
+      },
+      {
+        "id": "Group29",
+        "label": "Store-43",
+        "path": "\/Network\/COUNTRY\/REGION-SOUTH\/DISTRICT-SOUTHWEST\/Store-43",
+        "parent": "localid:Group26",
+        "roles": [
+          "role:Store"
+        ],
+        "attributes": []
+      },
+      {
+        "id": "Group30",
+        "label": "Store-44",
+        "path": "\/Network\/COUNTRY\/REGION-SOUTH\/DISTRICT-SOUTHWEST\/Store-44",
+        "parent": "localid:Group26",
+        "roles": [
+          "role:Store"
+        ],
+        "attributes": []
+      }
+    ]
+  },
+  {
+    "User": [
+      {
+        "id": "User01",
+        "username": "andrew.goyette",
+        "firstname": "Andrew",
+        "lastname": "Goyette",
+        "email": "andrew.goyette@cockpitlabs.io",
+        "emailVerified": true,
+        "roles": [],
+        "groups": [
+          "localid:Group09",
+          "localid:Group04"
+        ]
+      },
+      {
+        "id": "User02",
+        "username": "audie.fritsch",
+        "firstname": "Audie",
+        "lastname": "Fritsch",
+        "email": "audie.fritsch@cockpitlabs.io",
+        "emailVerified": true,
+        "roles": [],
+        "groups": [
+          "localid:Group08",
+          "localid:Group02",
+          "localid:Group06"
+        ]
+      },
+      {
+        "id": "User03",
+        "username": "avery.schaden",
+        "firstname": "Avery",
+        "lastname": "Schaden",
+        "email": "avery.schaden@cockpitlabs.io",
+        "emailVerified": true,
+        "roles": [],
+        "groups": [
+          "localid:Group05",
+          "localid:Group11"
+        ]
+      },
+      {
+        "id": "User04",
+        "username": "bethany.willms",
+        "firstname": "Bethany",
+        "lastname": "Willms",
+        "email": "bethany.willms@cockpitlabs.io",
+        "emailVerified": true,
+        "roles": [],
+        "groups": [
+          "localid:Group05",
+          "localid:Group27"
+        ]
+      },
+      {
+        "id": "User05",
+        "username": "dustin.blick",
+        "firstname": "Dustin",
+        "lastname": "Blick",
+        "email": "dustin.blick@cockpitlabs.io",
+        "emailVerified": true,
+        "roles": [],
+        "groups": [
+          "localid:Group21",
+          "localid:Group03"
+        ]
+      },
+      {
+        "id": "User06",
+        "username": "garfield.mayert",
+        "firstname": "Garfield",
+        "lastname": "Mayert",
+        "email": "garfield.mayert@cockpitlabs.io",
+        "emailVerified": true,
+        "roles": [],
+        "groups": [
+          "localid:Group05",
+          "localid:Group18"
+        ]
+      },
+      {
+        "id": "User07",
+        "username": "heidi.barton",
+        "firstname": "Heidi",
+        "lastname": "Barton",
+        "email": "heidi.barton@cockpitlabs.io",
+        "emailVerified": true,
+        "roles": [],
+        "groups": [
+          "localid:Group15",
+          "localid:Group03"
+        ]
+      },
+      {
+        "id": "User08",
+        "username": "jannie.hayes",
+        "firstname": "Jannie",
+        "lastname": "Hayes",
+        "email": "jannie.hayes@cockpitlabs.io",
+        "emailVerified": true,
+        "roles": [],
+        "groups": [
+          "localid:Group05",
+          "localid:Group25"
+        ]
+      },
+      {
+        "id": "User09",
+        "username": "kacie.lockman",
+        "firstname": "Kacie",
+        "lastname": "Lockman",
+        "email": "kacie.lockman@cockpitlabs.io",
+        "emailVerified": true,
+        "roles": [],
+        "groups": [
+          "localid:Group05",
+          "localid:Group14"
+        ]
+      },
+      {
+        "id": "User10",
+        "username": "kallie.dibbert",
+        "firstname": "Kallie",
+        "lastname": "Dibbert",
+        "email": "kallie.dibbert@cockpitlabs.io",
+        "emailVerified": true,
+        "roles": [],
+        "groups": [
+          "localid:Group05",
+          "localid:Group17"
+        ]
+      },
+      {
+        "id": "User11",
+        "username": "krystel.hudson",
+        "firstname": "Krystel",
+        "lastname": "Hudson",
+        "email": "krystel.hudson@cockpitlabs.io",
+        "emailVerified": true,
+        "roles": [],
+        "groups": [
+          "localid:Group10",
+          "localid:Group03"
+        ]
+      },
+      {
+        "id": "User12",
+        "username": "manley.hegmann",
+        "firstname": "Manley",
+        "lastname": "Hegmann",
+        "email": "manley.hegmann@cockpitlabs.io",
+        "emailVerified": true,
+        "roles": [],
+        "groups": [
+          "localid:Group05",
+          "localid:Group24"
+        ]
+      },
+      {
+        "id": "User13",
+        "username": "marguerite.gibson",
+        "firstname": "Marguerite",
+        "lastname": "Gibson",
+        "email": "marguerite.gibson@cockpitlabs.io",
+        "emailVerified": true,
+        "roles": [],
+        "groups": [
+          "localid:Group26",
+          "localid:Group03"
+        ]
+      },
+      {
+        "id": "User14",
+        "username": "marguerite.shields",
+        "firstname": "Marguerite",
+        "lastname": "Shields",
+        "email": "marguerite.shields@cockpitlabs.io",
+        "emailVerified": true,
+        "roles": [],
+        "groups": [
+          "localid:Group05",
+          "localid:Group23"
+        ]
+      },
+      {
+        "id": "User15",
+        "username": "marley.mante",
+        "firstname": "Marley",
+        "lastname": "Mante",
+        "email": "marley.mante@cockpitlabs.io",
+        "emailVerified": true,
+        "roles": [],
+        "groups": [
+          "localid:Group20",
+          "localid:Group04"
+        ]
+      },
+      {
+        "id": "User16",
+        "username": "maximillia.bode",
+        "firstname": "Maximillia",
+        "lastname": "Bode",
+        "email": "maximillia.bode@cockpitlabs.io",
+        "emailVerified": true,
+        "roles": [],
+        "groups": [
+          "localid:Group05",
+          "localid:Group16"
+        ]
+      },
+      {
+        "id": "User17",
+        "username": "millie.runte",
+        "firstname": "Millie",
+        "lastname": "Runte",
+        "email": "millie.runte@cockpitlabs.io",
+        "emailVerified": true,
+        "roles": [],
+        "groups": [
+          "localid:Group05",
+          "localid:Group12"
+        ]
+      },
+      {
+        "id": "User18",
+        "username": "payton.johns",
+        "firstname": "Payton",
+        "lastname": "Johns",
+        "email": "payton.johns@cockpitlabs.io",
+        "emailVerified": true,
+        "roles": [],
+        "groups": [
+          "localid:Group05",
+          "localid:Group13"
+        ]
+      },
+      {
+        "id": "User19",
+        "username": "pietro.cronin",
+        "firstname": "Pietro",
+        "lastname": "Cronin",
+        "email": "pietro.cronin@cockpitlabs.io",
+        "emailVerified": true,
+        "roles": [],
+        "groups": [
+          "localid:Group05",
+          "localid:Group30"
+        ]
+      },
+      {
+        "id": "User20",
+        "username": "queenie.jacobi",
+        "firstname": "Queenie",
+        "lastname": "Jacobi",
+        "email": "queenie.jacobi@cockpitlabs.io",
+        "emailVerified": true,
+        "roles": [],
+        "groups": [
+          "localid:Group05",
+          "localid:Group19"
+        ]
+      },
+      {
+        "id": "User21",
+        "username": "rosendo.macejkovic",
+        "firstname": "Rosendo",
+        "lastname": "Macejkovic",
+        "email": "rosendo.macejkovic@cockpitlabs.io",
+        "emailVerified": true,
+        "roles": [],
+        "groups": [
+          "localid:Group08",
+          "localid:Group02"
+        ]
+      },
+      {
+        "id": "User22",
+        "username": "samson.murazik",
+        "firstname": "Samson",
+        "lastname": "Murazik",
+        "email": "samson.murazik@cockpitlabs.io",
+        "emailVerified": true,
+        "roles": [],
+        "groups": [
+          "localid:Group05",
+          "localid:Group22"
+        ]
+      },
+      {
+        "id": "User23",
+        "username": "tiara.goyette",
+        "firstname": "Tiara",
+        "lastname": "Goyette",
+        "email": "tiara.goyette@cockpitlabs.io",
+        "emailVerified": true,
+        "roles": [],
+        "groups": [
+          "localid:Group05",
+          "localid:Group28"
+        ]
+      },
+      {
+        "id": "User24",
+        "username": "zoie.goldner",
+        "firstname": "Zoie",
+        "lastname": "Goldner",
+        "email": "zoie.goldner@cockpitlabs.io",
+        "emailVerified": true,
+        "roles": [],
+        "groups": [
+          "localid:Group05",
+          "localid:Group29"
+        ]
+      }
+    ]
+  }
+]

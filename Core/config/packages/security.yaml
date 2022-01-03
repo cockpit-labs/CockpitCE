@@ -1,0 +1,55 @@
+security:
+  # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
+  providers:
+    jwt:
+      lexik_jwt:
+        class: App\Security\User
+    app_user_provider:
+      entity:
+        class: App\Entity\Keycloak\User
+        property: email
+
+  firewalls:
+    dev:
+      pattern: ^/(_(profiler|wdt)|css|images|js)/
+      security: false
+
+    apidoc:
+      pattern: ^/api/index.*
+      security: false
+
+    main:
+      pattern: ^/_(profiler|wdt)
+      stateless: true
+      anonymous: true
+      provider: jwt
+      guard:
+        authenticators:
+          - lexik_jwt_authentication.jwt_token_authenticator
+
+    configs:
+      pattern: ^/api/configs/*
+      methods: [GET]
+      security: false
+
+    api:
+      pattern: ^/api/
+      provider: jwt
+      switch_user: { role: ROLE_Impersonation }
+      stateless: true
+      anonymous: true
+      guard:
+        authenticators:
+          - lexik_jwt_authentication.jwt_token_authenticator
+
+      # activate different ways to authenticate
+      # https://symfony.com/doc/current/security.html#firewalls-authentication
+
+      # https://symfony.com/doc/current/security/impersonating_user.html
+      # switch_user: true
+
+  # Easy way to control access for large sections of your site
+  # Note: Only the *first* access control that matches will be used
+  access_control:
+    - { path: ^/api, roles: 'ROLE_User' }
+

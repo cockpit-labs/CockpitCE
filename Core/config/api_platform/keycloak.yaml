@@ -1,0 +1,146 @@
+##################################
+App\Entity\Role:
+  attributes:
+    order: ['name']
+#    input: App\Entity\Role
+    normalization_context:
+      groups:
+        - 'Role:Read'
+        - 'Label'
+        - 'Resource'
+        - 'Description'
+      preserve_empty_objects: false
+
+    denormalization_context:
+      groups:
+        - 'Role:Update'
+        - 'Label'
+        - 'Description'
+
+  collectionOperations:
+    get:
+      security: is_granted('ROLE_Admin') or is_granted('ROLE_Studio')
+      security_message: 'Sorry, but you are not authorized.'
+    post:
+      security: is_granted('ROLE_Admin')
+      security_message: 'Sorry, but you are not authorized.'
+
+  itemOperations:
+    get:
+      security: is_granted('ROLE_Admin') or is_granted('ROLE_Studio')
+      security_message: 'Sorry, but you are not authorized.'
+    patch:
+      security: is_granted('ROLE_Admin')
+      security_message: 'Sorry, but you are not authorized.'
+    delete:
+      security: is_granted('ROLE_Admin')
+      security_message: 'Sorry, but you are not authorized.'
+
+##################################
+App\Entity\Group:
+  attributes:
+    input: App\Entity\Group
+    normalization_context:
+      groups:
+        - 'Group:Read'
+        - 'Label'
+        - 'Resource'
+      preserve_empty_objects: false
+
+    output: App\Entity\Group
+    denormalization_context:
+      groups:
+        - 'Label'
+        - 'Group:Update'
+
+  collectionOperations:
+    get:
+      security: is_granted('ROLE_User') or is_granted('ROLE_Admin')
+      security_message: 'Sorry, but you are not authorized.'
+    post:
+      security: is_granted('ROLE_Admin')
+      security_message: 'Sorry, but you are not authorized.'
+
+  itemOperations:
+    get:
+      security: is_granted('ROLE_User') or is_granted('ROLE_Admin')
+      security_message: 'Sorry, but you are not authorized.'
+    patch:
+      security: is_granted('ROLE_Admin')
+      security_message: 'Sorry, but you are not authorized.'
+    delete:
+      security: is_granted('ROLE_Admin')
+      security_message: 'Sorry, but you are not authorized.'
+
+
+##################################
+App\Entity\User:
+  attributes:
+    order: ['username']
+
+    input: App\Entity\User
+    output: App\Entity\User
+    denormalization_context:
+      groups:
+        - 'Label'
+        - 'Resource'
+    normalization_context:
+      groups:
+        - 'User:Read'
+        - 'Label'
+        - 'Resource'
+      preserve_empty_objects: true
+
+
+  collectionOperations:
+    get:
+      security: is_granted('ROLE_User') or is_granted('ROLE_Admin')
+      security_message: 'Sorry, but you are not authorized.'
+    post:
+      security: is_granted('ROLE_Admin')
+      security_message: 'Sorry, but you are not authorized.'
+
+  itemOperations:
+    get:
+      security: is_granted('ROLE_User') or is_granted('ROLE_Admin')
+      security_message: 'Sorry, but you are not authorized.'
+    patch:
+      security: is_granted('ROLE_Admin')
+      security_message: 'Sorry, but you are not authorized.'
+    delete:
+      security: is_granted('ROLE_Admin')
+      security_message: 'Sorry, but you are not authorized.'
+
+##################################
+App\Entity\Config:
+
+  attributes:
+    normalization_context:
+      groups:
+        - 'Config:Read'
+        - 'Resource'
+      preserve_empty_objects: true
+
+    denormalization_context:
+      groups:
+        - 'Config:Update'
+
+  collectionOperations:
+    post:
+      security: is_granted('ROLE_Admin')
+      security_message: 'Sorry, but you are not authorized.'
+    get:
+      openapi_context:
+        summary: 'Get clients configs collection'
+        description: ''
+
+  itemOperations:
+    get:
+      openapi_context:
+        summary: 'Get client config'
+        description: ''
+
+    patch:
+      security: is_granted('ROLE_Admin')
+      security_message: 'Sorry, but you are not authorized.'
+

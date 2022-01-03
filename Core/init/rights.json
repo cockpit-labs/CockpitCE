@@ -1,0 +1,7 @@
+{
+  "VIEW": "User can view anwsers",
+  "STATS": "User can view statistics on folders",
+  "CREATE": "User can answer to a folder questionnaire",
+  "VALIDATE": "User can validate a folder"
+}
+

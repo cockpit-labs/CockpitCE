@@ -1,0 +1,232 @@
+{
+  "user": {
+    "access": {
+      "location": "json",
+      "type": "object",
+      "required": false
+    },
+    "attributes": {
+      "location": "json",
+      "type": "object",
+      "required": false
+    },
+    "clientConsents": {
+      "location": "json",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": null
+      },
+      "required": false
+    },
+    "clientRoles": {
+      "location": "json",
+      "type": "object",
+      "required": false
+    },
+    "createdTimestamp": {
+      "location": "json",
+      "type": "integer",
+      "required": false
+    },
+    "credentials": {
+      "location": "json",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": null
+      },
+      "required": false
+    },
+    "disableableCredentialTypes": {
+      "location": "json",
+      "type": "array",
+      "required": false
+    },
+    "email": {
+      "location": "json",
+      "type": "string",
+      "required": false
+    },
+    "emailVerified": {
+      "location": "json",
+      "type": "boolean",
+      "required": false
+    },
+    "enabled": {
+      "location": "json",
+      "type": "boolean",
+      "required": false
+    },
+    "federatedIdentities": {
+      "location": "json",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": null
+      },
+      "required": false
+    },
+    "federationLink": {
+      "location": "json",
+      "type": "string",
+      "required": false
+    },
+    "firstName": {
+      "location": "json",
+      "type": "string",
+      "required": false
+    },
+    "groups": {
+      "location": "json",
+      "type": "array",
+      "required": false
+    },
+    "id": {
+      "location": "json",
+      "type": "string",
+      "required": false
+    },
+    "lastName": {
+      "location": "json",
+      "type": "string",
+      "required": false
+    },
+    "notBefore": {
+      "location": "json",
+      "type": "integer",
+      "required": false
+    },
+    "origin": {
+      "location": "json",
+      "type": "string",
+      "required": false
+    },
+    "realmRoles": {
+      "location": "json",
+      "type": "array",
+      "required": false
+    },
+    "requiredActions": {
+      "location": "json",
+      "type": "array",
+      "required": false
+    },
+    "self": {
+      "location": "json",
+      "type": "string",
+      "required": false
+    },
+    "serviceAccountClientId": {
+      "location": "json",
+      "type": "string",
+      "required": false
+    },
+    "username": {
+      "location": "json",
+      "type": "string",
+      "required": false
+    }
+  },
+  "group": {
+    "access": {
+      "location": "json",
+      "type": "object",
+      "required": false
+    },
+    "attributes": {
+      "location": "json",
+      "type": "object",
+      "required": false
+    },
+    "clientRoles": {
+      "location": "json",
+      "type": "object",
+      "required": false
+    },
+    "id": {
+      "location": "json",
+      "type": "string",
+      "required": false
+    },
+    "name": {
+      "location": "json",
+      "type": "string",
+      "required": false
+    },
+    "path": {
+      "location": "json",
+      "type": "string",
+      "required": false
+    },
+    "realmRoles": {
+      "location": "json",
+      "type": "array",
+      "required": false
+    },
+    "subGroups": {
+      "location": "json",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": "xxx"
+      },
+      "required": false
+    }
+  },
+  "role_composites": {
+    "client": {
+      "location": "json",
+      "type": "object",
+      "required": false
+    },
+    "realm": {
+      "location": "json",
+      "type": "array",
+      "required": false
+    }
+  },
+  "role": {
+    "attributes": {
+      "location": "json",
+      "type": "object",
+      "required": false
+    },
+    "clientRole": {
+      "location": "json",
+      "type": "boolean",
+      "required": false
+    },
+    "composite": {
+      "location": "json",
+      "type": "boolean",
+      "required": false
+    },
+    "composites": {
+      "location": "json",
+      "type": "object",
+      "properties": null,
+      "required": false
+    },
+    "containerId": {
+      "location": "json",
+      "type": "string",
+      "required": false
+    },
+    "description": {
+      "location": "json",
+      "type": "string",
+      "required": false
+    },
+    "id": {
+      "location": "json",
+      "type": "string",
+      "required": false
+    },
+    "name": {
+      "location": "json",
+      "type": "string",
+      "required": false
+    }
+  }
+}

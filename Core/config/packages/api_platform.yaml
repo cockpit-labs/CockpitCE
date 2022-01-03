@@ -1,0 +1,79 @@
+api_platform:
+  title: 'Cockpit API'
+  description: 'Cockpit Enterprise Edition API'
+  version: '%env(resolve:VERSION)%'
+  show_webby: false
+  # Enable ReDoc.
+  enable_re_doc: false
+  # Enable the Swagger documentation and export.
+  enable_swagger: true
+  # Enable Swagger ui.
+  enable_swagger_ui: false
+  # Allow using plain IDs for JSON format
+  allow_plain_identifiers: true
+  mapping:
+    paths:
+      - '%kernel.project_dir%/config/api_platform' # yaml or xml directory configuration
+      - '%kernel.project_dir%/src/Entity'
+  patch_formats:
+    json: ['application/merge-patch+json']
+  swagger:
+    versions: [3]
+    api_keys:
+      apiKey:
+        name: Authorization
+        type: header
+  eager_loading:
+    enabled: true
+    force_eager: false
+    max_joins: 10
+  formats:
+    json: ['application/json']
+    jsonld: ['application/ld+json']
+    jsonhal: ['application/hal+json']
+  collection:
+    # The name of the query parameter to filter nullable results (with the ExistsFilter).
+    exists_parameter_name: 'exists'
+    # The default order of results.
+    order: 'ASC'
+    # The name of the query parameter to order results (with the OrderFilter).
+    order_parameter_name: 'order'
+    pagination:
+      # To enable or disable pagination for all resource collections by default.
+      enabled: false
+      # To allow partial pagination for all resource collections.
+      # This improves performances by skipping the `COUNT` query.
+      partial: false
+      # To allow the client to enable or disable the pagination.
+      client_enabled: true
+      # To allow the client to set the number of items per page.
+      client_items_per_page: true
+      # To allow the client to enable or disable the partial pagination.
+      client_partial: true
+      # The default number of items per page.
+      items_per_page: 10
+      # The maximum number of items per page.
+      maximum_items_per_page: 100
+      # The default name of the parameter handling the page number.
+      page_parameter_name: 'page'
+      # The name of the query parameter to enable or disable pagination.
+      enabled_parameter_name: 'pagination'
+      # The name of the query parameter to set the number of items per page.
+      items_per_page_parameter_name: 'itemsPerPage'
+      # The name of the query parameter to enable or disable the partial pagination.
+      partial_parameter_name: 'partial'
+  http_cache:
+    # Automatically generate etags for API responses.
+    etag: true
+    # Default value for the response max age.
+    max_age: 3600
+    # Default value for the response shared (proxy) max age.
+    shared_max_age: 3600
+    # To make all responses public by default.
+    public: ~
+    # Default values of the "Vary" HTTP header.
+    vary: ['Accept', 'Content-Type', 'Authorization']
+    #    vary: ['Accept']
+    invalidation:
+      enabled: false
+      varnish_urls: ['']

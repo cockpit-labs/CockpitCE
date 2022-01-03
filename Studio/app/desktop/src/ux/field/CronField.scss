@@ -1,0 +1,30 @@
+// .cron-field {
+//   padding: 4px;
+//   & > .x-body-wrap-el > .x-body-el > .x-container > .x-body-el {
+//     flex-wrap: wrap;
+//     & > * {
+//       margin: 2px;
+//     }
+//   }
+// }
+.cron-field {
+  .x-label-el {
+    background-color: var(--header-background-color);
+    color: var(--base-color);border: 1px solid var(--base-color);
+    padding: 4px;
+  }
+  select, select:focus {
+    width: 100%;
+    overflow: auto;
+    option {
+      padding: 4px;
+    }
+    option:checked,
+    option:focus, 
+    option:active {
+      /* Need this to make it works in chrome */
+      background: linear-gradient(var(--base-pressed-color), #1098b7);
+      background-color: var(--base-pressed-color) !important;
+    }
+  }
+} 

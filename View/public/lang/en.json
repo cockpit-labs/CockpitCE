@@ -1,0 +1,124 @@
+{
+  "loading": "Loading...",
+  "previous": "Previous",
+  "next": "Next",
+  "previousPage": "Previous page",
+  "nextPage": "Next page",
+  "close": "Close",
+  "ok": "OK",
+  "cancel": "Cancel",
+  "quit": "Quit",
+  "downloadPdf": "View in PDF",
+  "pdfLoading": "Loading PDF...",
+  "yes": "Yes",
+  "no": "No",
+  "none": "None",
+  "mainMenu": {
+    "questionnaires": "Questionnaires",
+    "dashboard": "Dashboard",
+    "gallery": "Gallery",
+    "logout": "Logout",
+    "language": "Language",
+    "closeMenu": "Close menu",
+    "answers": "Answers",
+    "targetData": "Informations",
+    "home": "Home"
+  },
+  "homePage": {
+    "hello": "Hi",
+    "inProgress": "In progress",
+    "today": "Today",
+    "noQuestionnaireToday": "No questionnaire today"
+  },
+  "dashboardPage": {
+    "benchmarkChart": "Benchmark",
+    "scoresByThemeChart": "Scores by themes",
+    "performanceChart": "Performance",
+    "progressChart": "Progress",
+    "foldersModalTitle": "Questionnaires"
+  },
+  "galleryPage": {
+    "noData": "No photo for this period",
+    "showLinkedQuestionnaire": "Show linked questionnaire",
+    "nbResults": "{n} photo | {n} photos"
+  },
+  "questionnairesPage": {
+    "start": "Start",
+    "continue": "Continue",
+    "remainingDays": "{n} day remaining | {n} days remaining",
+    "noData": "No questionnaire",
+    "alertDeleteQuestionnaireTitle": "Confirm",
+    "alertDeleteQuestionnaireContent": "Delete the questionnaire ?",
+    "alertRequiredTitle": "Not submitted",
+    "alertRequiredContent": "Required questions have no answer",
+    "alertQuitQuestionnaireTitle": "Quit the questionnaire ?",
+    "alertQuitQuestionnaireContent": "Unsaved answers will be lost"
+  },
+  "answersPage": {
+    "noData": "No questionnaire",
+    "folderCreationDetails": "{createdAt} by {createdBy}",
+    "viewFolderQuestionnaires": "View",
+    "sendByEmail": "Send by email",
+    "recipientsReport": "Recipients of the report",
+    "sendingEmail": "Sending...",
+    "sendEmail": "Send"
+  },
+  "pageNotFound": {
+    "title": "Page not found",
+    "subtitle": "The requested page does not exist (or no longer exists)",
+    "goToHome": "Go to home page"
+  },
+  "questionnaire": {
+    "submitting": "Sending...",
+    "submit": "Send",
+    "saving": "Saving...",
+    "save": "Save"
+  },
+  "placeholder": {
+    "selectTarget": "Select a group",
+    "comment": "Comment...",
+    "selectAnswer": "Select an answer",
+    "selectQuestionnaire": "Select a questionnaire",
+    "enterDate": "Enter a date",
+    "selectMultipleAnswers": "Select one or more answers",
+    "multipleAnswersSelected": "{n} item selected | {n} items selected",
+    "selectUser": "Select a user",
+    "searchPlaceholder": "Enter few letters...",
+    "allQuestionnaires": "All questionnaires"
+  },
+  "question": {
+    "required": "Required",
+    "comment": "Comment",
+    "photo": "Photo",
+    "addPhoto": "Photo",
+    "uploading": "Uploading...",
+    "maxPhotosReached": "Maximum number reached",
+    "annotatePhoto": "Annotate",
+    "deletePhoto": "Delete",
+    "noAnswer": "No answer",
+    "noPhoto": "No photo"
+  },
+  "periodSelector": {
+    "periods": "Periods",
+    "noPeriod": "No period",
+    "dateStart": "Start date",
+    "dateEnd": "End date",
+    "apply": "Apply",
+    "customPeriod": "Custom dates",
+    "showPeriods": "Show periods"
+  },
+  "chart": {
+    "noData": "No data",
+    "average": "Average"
+  },
+  "target": {
+    "root": "Root"
+  },
+  "alert": {
+    "errorTitle": "Error {code}",
+    "errorOccurred": "An error occurred<br>Please try again later",
+    "retry": "Retry",
+    "forbidden": "Forbidden action",
+    "unauthorized": "Unauthorized user"
+  }
+}

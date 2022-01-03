@@ -1,0 +1,148 @@
+{
+  "name": "Studio",
+  "namespace": "Studio",
+  "version": "1.0.0.0",
+  "framework": "ext",
+  "template": "moderndesktopminimal",
+  "indexHtmlPath": "index.html",
+  "requires": [
+    "font-awesome"
+  ],
+
+  "builds": {
+    "desktop": {
+      "toolkit": "modern",
+      "theme": "theme-material",
+      "sass": {
+        "generated": {
+          "var": "${build.id}/sass/save.scss",
+          "src": "${build.id}/sass/save"
+        }
+      }
+    }
+  },
+
+  "classpath": ["app/${build.id}/src"],
+  "overrides": ["app/${build.id}/overrides"],
+
+  "sass": {
+    "namespace": "Studio",
+    "etc": [
+      "sass/etc/all.scss"
+    ],
+    "var": [
+      "app/${build.id}/sass/var.scss"
+    ],
+    "src": [
+      "app/${build.id}/sass/src.scss"
+    ]
+  },
+
+  "resources": [
+    { "path": "resources/${build.id}" }
+  ],
+
+  "output": {
+    "base": "${workspace.build.dir}/${build.environment}/${app.name}",
+    "page": "index.html",
+    "manifest": "generatedFiles/${build.id}.json",
+    "js": "generatedFiles/${build.id}/app.js",
+    "appCache": {"enable": false},
+    "resources": {
+      "path": "${build.id}/resources",
+      "shared": "resources"
+    }
+  },
+  
+  "fashion": {
+   "missingParameters": "error",
+    "inliner": {"enable": false}
+  },
+
+  "js": [
+    {
+      "path": "app.js",
+      "bundle": true
+    },
+    {
+      "path": "${workspace.dir}/resources/utils/cronstrue.js"
+    }
+  ],
+
+  "classic": {"js": []},
+  "modern": {"js": []},
+
+  "css": [
+    {
+      "path": "${build.out.css.path}",
+      "bundle": true,
+      "exclude": ["fashion"]
+    }
+  ],
+
+  "loader": {
+    "cache": true,
+    "cacheParam": "_dc"
+  },
+
+  "production": {
+    "output": {
+      "base": "${workspace.dir}/dist",
+      "manifest": "app.json",
+      "js": "app.js",
+      "resources": {
+        "path": "resources",
+        "shared": "resources"
+      },
+      "appCache": {
+        "enable": true,
+        "path": "cache.appcache"
+      },
+      "microloader": {
+        "enable": true,
+        "embed": false
+      }
+    },
+    "loader": {
+      "cache": "${build.timestamp}"
+    },
+    "cache": {
+      "enable": true
+    },
+    "compressor": {
+      "type": "yui"
+    }
+  },
+
+  "testing": {},
+
+  "development": {
+    "watch": {
+      "delay": 250
+    }
+  },
+
+  "bootstrap": {
+    "base": "${app.dir}",
+    "manifest": "generatedFiles/${build.id}.json",
+    "microloader": "microloader.js",
+    "css": "generatedFiles/bootstrap.css"
+  },
+
+  "cache": {
+      "enable": true,
+      "deltas": false
+  },
+
+  "appCache": {
+    "cache": ["index.html"],
+    "network": ["*"],
+    "fallback": []
+  },
+
+
+  "archivePath": "archive/${build.id}",
+
+  "ignore": ["(^|/)CVS(/?$|/.*?$)"],
+  "id": "a1004770-a44e-4a70-be7b-4a3cc0d3217f"
+}

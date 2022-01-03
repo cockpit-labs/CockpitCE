@@ -1,0 +1,16 @@
+[
+  {
+    "Calendar": [
+      {
+        "id": "calendar01",
+        "start": "2021-01-01T00:00:00+00:00",
+        "end": "2022-12-31T00:00:00+00:00",
+        "cronStart": "* * * * *",
+        "cronEnd": "* * * * *",
+        "valid": true,
+        "label": "Default calendar",
+        "description": "Default calendar. Every day in 2021 and 2022"
+      }
+    ]
+  }
+]

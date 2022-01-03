@@ -1,0 +1,24 @@
+api_platform:
+  # Enable ReDoc.
+  enable_re_doc: true
+
+  # Enable the Swagger documentation and export.
+  enable_swagger: true
+
+  # Enable Swagger ui.
+  enable_swagger_ui: true
+
+  formats:
+    json:     ['application/json']
+    jsonld:   ['application/ld+json']
+    jsonhal:  ['application/hal+json']
+#    jsonapi:  ['application/vnd.api+json']
+#    xml:      ['application/xml', 'text/xml']
+#    yaml:     ['application/x-yaml']
+#    csv:      ['text/csv']
+    html:     ['text/html']
+
+  http_cache:
+    invalidation:
+      enabled: false
+      varnish_urls: ['']

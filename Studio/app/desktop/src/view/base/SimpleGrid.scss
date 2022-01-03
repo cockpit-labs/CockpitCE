@@ -1,0 +1,8 @@
+.c-simplegrid {
+  min-height: 255px;
+  .x-gridrow.x-selected .x-gridcell > *:not(.x-celleditor){
+    .x-icon-el, .x-expander-el {
+      color: $gridrow-selected-color;
+    }
+  }
+}

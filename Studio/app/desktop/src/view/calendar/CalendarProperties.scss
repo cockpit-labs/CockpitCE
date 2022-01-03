@@ -1,0 +1,24 @@
+.calendarproperties {
+  .x-label {
+    color: var(--highlight-color);
+    padding: 7px 10px 7px 0;
+  }
+  .x-form-fieldset-body-el {
+    padding-left: 0;
+    .x-field {
+      padding-right: 16px;
+    }
+  }
+  .cronfieldset {
+    flex-wrap: wrap;
+    & > .x-label-el {
+      padding-bottom: 0;
+      .x-label-text-el {
+        white-space: normal;
+      }
+    }
+    & > .x-body-wrap-el {
+      padding-left: 10px;
+    }
+  }
+}

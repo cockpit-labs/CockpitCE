@@ -1,0 +1,5 @@
+/View/node_modules/
+/View/config/
+/View/dist/*
+/mysqldata
+/storage

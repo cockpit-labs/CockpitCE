@@ -1,0 +1,53 @@
+version: '3.8'
+
+services:
+  cockpit:
+    container_name: cockpit_app
+    image: cockpitce:latest
+    build:
+      context: .
+    env_file: .env
+    ports:
+      - 80:80
+    volumes:
+      - ./storage:/storage
+      - ./cockpit/cockpit.conf:/etc/apache2/sites-available/000-default.conf
+      - ./dataset:/dataset
+
+  gotenberg:
+    container_name: cockpit_gotenberg
+    image: thecodingmachine/gotenberg:6
+    restart: always
+
+  mysql:
+    container_name: cockpit_mysql
+    image: mysql:8.0
+    command: "--default-authentication-plugin=mysql_native_password"
+    restart: always
+    volumes:
+      - ${MYSQLDATADIR}:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: $MYSQL_ROOT_PASSWORD
+      MYSQL_DATABASE: $KEYCLOAK_DBNAME
+      MYSQL_USER: $KEYCLOAK_DBUSER
+      MYSQL_PASSWORD: $KEYCLOAK_DBPASSWORD
+    ports:
+      - 3306:3306
+
+  keycloak:
+    container_name: cockpit_keycloak
+    image: quay.io/keycloak/keycloak:15.0.2
+    restart: always
+    environment:
+      DB_VENDOR: MYSQL
+      DB_ADDR: mysql
+      DB_DATABASE: $KEYCLOAK_DBNAME
+      DB_USER: $KEYCLOAK_DBUSER
+      DB_PASSWORD: $KEYCLOAK_DBPASSWORD
+      KEYCLOAK_USER: $KEYCLOAK_USER
+      KEYCLOAK_PASSWORD: $KEYCLOAK_PASSWORD
+      PROXY_ADDRESS_FORWARDING: 'true'
+    ports:
+      - 8080:8080
+    depends_on:
+      - mysql

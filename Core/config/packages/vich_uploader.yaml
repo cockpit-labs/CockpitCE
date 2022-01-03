@@ -1,0 +1,19 @@
+vich_uploader:
+    db_driver: orm
+    storage: flysystem
+
+    mappings:
+        media_object:
+            uri_prefix: /media
+            upload_destination: "%env(MEDIA_STORAGE)%" # Use the name you defined for your storage here
+            directory_namer:
+                service: App\Service\StorageDirectoryNamer
+                options:
+                    date_time_format: 'Y/d/m'
+                    date_time_property: createdAt
+            namer:
+                service: Vich\UploaderBundle\Naming\UniqidNamer
+            inject_on_load: true
+            delete_on_update: true
+            delete_on_remove: true
+

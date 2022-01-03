@@ -1,0 +1,105 @@
+ .viewport > .x-panelheader {
+   & > .x-body-el {
+     padding-right: 17px;
+   }
+   .x-paneltitle {
+     padding-left: 42px;
+     background: 0 0 no-repeat url(logo.svg);
+     background-size: 2.1em;
+    /* background: 4px center no-repeat url(logo.svg);
+     background-size: contain;*/
+     .x-text-el {
+       font-weight: 600;
+       text-transform: uppercase;
+       text-shadow: 0.1em 0.1em 0.1em #ccc;
+       padding-right: 6px; /* for text-shadow */
+    }
+  }
+  .x-button {
+    .x-text-el {
+      text-transform: none;
+    }
+  }
+}
+.x-viewport-body-el {
+  background: none;
+}
+.x-mask .x-mask-message {
+  color: var(--base-foreground-color);
+}
+.x-loading-mask {
+  z-index: 1000000;
+}
+.x-loading-spinner {
+  height: 1em;
+  width: 1em;
+  -webkit-transform-origin: 0.5em 0.5em;
+  transform-origin: 0.5em 0.5em;
+  & > span,  & > span:before, & > span:after {
+    width: .1em;
+    height: .25em;
+    -webkit-transform-origin: 0.05em .5em;
+    transform-origin: 0.05em .5em;
+  }
+}
+.x-selected-icon {
+  visibility: visible !important;
+}
+:not(.x-show-selection) > .x-boundlistitem .x-selected-icon,
+:not(.x-multi-select) > .x-boundlistitem .x-selected-icon {
+    display: block;
+}
+$tool-cubes-icon: dynamic($fa-var-cubes 'Font Awesome 5 Free');
+.x-tool-type-cubes {
+  @include icon($tool-cubes-icon);
+}
+
+/* disabled toggle field is ugly */
+.x-slider.x-disabled {
+  .x-fill-el {
+    background-color: lighten($base-highlight-color, 20%);
+  }
+  .x-thumb {
+    box-shadow: none;
+  }
+}
+.x-tool-type-role:before {
+  color: var(--disabled-color);
+  content: '\f21b';
+  font-family: 'Font Awesome 5 Free';
+}
+.x-tool-type-user:before {
+  color: var(--disabled-color);
+  content: '\f007';
+  font-family: 'Font Awesome 5 Free';
+}
+.x-gridcolumn .x-text-el {
+  font-weight: bold;
+  color: var(--base-color);
+}
+/* just some Triton theme override */
+// .x-paneltitle {
+//   padding: 8px 0;
+// }
+// .x-panelheader > .x-body-el {
+//   padding: 0 8px;
+// }
+// .x-checkcolumn.x-checked .x-checkbox-el:before {
+//   content: '\f14a';
+// }
+// .x-checkcell .x-checkbox-el {
+//   color: white;
+//   border: 2px solid #919191;
+//   border-radius: 3px;
+//   box-sizing: content-box;
+//   :before {
+//     content: none;
+//   }
+//   &:focus {
+//     color: white;
+//   }
+// }
+
+// .x-checkcell.x-disabled .x-checkbox-el {
+//   opacity: 0.5;
+// }

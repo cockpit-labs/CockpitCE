@@ -1,0 +1,9 @@
+.mainview {
+    .x-tab .x-icon-el {
+        width: 24px;
+    }
+    .goodbye:not(.x-hidden) {
+        background: center center no-repeat url(logo.svg);
+        background-size: 60%;
+    }
+}

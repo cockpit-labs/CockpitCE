@@ -1,0 +1,17 @@
+.groupproperties {
+    .editable-fieldset .x-form-fieldset-title {
+        background-color: var(--base-color);
+        padding: 4px;
+        color: var(--base-foreground-color);
+    }
+    .drop-trigger .x-icon-el:before {
+        content: 'delete';
+    }
+    .editable-fieldset .x-titlebar-body-el {
+        min-height: 32px;
+        padding: 0 6px;
+    }
+    .x-field:not(.x-disabled) > .x-label-el {
+        color: var(--base-color);
+    }
+}

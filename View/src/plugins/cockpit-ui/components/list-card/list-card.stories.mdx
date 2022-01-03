@@ -1,0 +1,38 @@
+import { Meta, Props, Story, Preview } from '@storybook/addon-docs/blocks'
+import { action } from '@storybook/addon-actions'
+
+import SListCard from './SListCard'
+
+<Meta 
+  title="Components/List card" 
+  component={SListCard}
+/>
+
+# List card
+
+## Default
+
+<Preview style={{backgroundColor:'#F5F7FA'}}>
+  <Story name="Default">
+    {{
+      components: { SListCard },
+      template: `
+        <div>
+         <s-list-card @click="handleClick" v-for="n in 3" :key="n">
+           <template #title>Follow Up POS</template>
+           <template #body>
+             Cum haec taliaque sollicitas eius aures everberarent expositas semper eius modi rumoribu
+           </template>
+           <template #footer>7 days left</template>
+           <template #action-label>Start</template>
+         </s-list-card>
+         </div>
+      `,
+      methods: {
+        handleClick: action('clicked')
+      }
+    }}
+  </Story>
+</Preview>
+
+<Props of={SListCard} />

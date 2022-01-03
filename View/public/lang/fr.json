@@ -1,0 +1,124 @@
+{
+  "loading": "Chargement...",
+  "previous": "Précédent",
+  "next": "Suivant",
+  "previousPage": "Page précédente",
+  "nextPage": "Page suivante",
+  "close": "Fermer",
+  "ok": "OK",
+  "cancel": "Annuler",
+  "quit": "Quitter",
+  "downloadPdf": "Voir en PDF",
+  "pdfLoading": "Chargement du PDF en cours...",
+  "yes": "Oui",
+  "no": "Non",
+  "none": "Aucun",
+  "mainMenu": {
+    "questionnaires": "Questionnaires",
+    "dashboard": "Dashboard",
+    "gallery": "Galerie",
+    "logout": "Déconnexion",
+    "language": "Langue",
+    "closeMenu": "Fermer le menu",
+    "answers": "Réponses",
+    "targetData": "Informations",
+    "home": "Accueil"
+  },
+  "homePage": {
+    "hello": "Bonjour",
+    "inProgress": "En cours",
+    "today": "Aujourd'hui",
+    "noQuestionnaireToday": "Aucun questionnaire aujourd'hui"
+  },
+  "dashboardPage": {
+    "benchmarkChart": "Benchmark",
+    "scoresByThemeChart": "Scores par thème",
+    "performanceChart": "Performance",
+    "progressChart": "Avancement",
+    "foldersModalTitle": "Questionnaires"
+  },
+  "galleryPage": {
+    "noData": "Aucune photo pour cette période",
+    "showLinkedQuestionnaire": "Voir le questionnaire associé",
+    "nbResults": "{n} photo | {n} photos"
+  },
+  "questionnairesPage": {
+    "start": "Commencer",
+    "continue": "Continuer",
+    "remainingDays": "{n} jour restant | {n} jours restants",
+    "noData": "Aucun questionnaire",
+    "alertDeleteQuestionnaireTitle": "Confirmation",
+    "alertDeleteQuestionnaireContent": "Supprimer le questionnaire ?",
+    "alertRequiredTitle": "Non envoyé",
+    "alertRequiredContent": "Des questions obligatoires n'ont pas de réponse",
+    "alertQuitQuestionnaireTitle": "Quitter le questionnaire ?",
+    "alertQuitQuestionnaireContent": "Les réponses non enregistrées seront perdues"
+  },
+  "answersPage": {
+    "noData": "Aucun questionnaire",
+    "folderCreationDetails": "Le {createdAt} par {createdBy}",
+    "viewFolderQuestionnaires": "Consulter",
+    "sendByEmail": "Envoyer par email",
+    "recipientsReport": "Destinataires du rapport",
+    "sendingEmail": "Envoi en cours...",
+    "sendEmail": "Envoyer"
+  },
+  "pageNotFound": {
+    "title": "Page introuvable",
+    "subtitle": "La page demandée n'existe pas (ou plus)",
+    "goToHome": "Aller à la page d'accueil"
+  },
+  "questionnaire": {
+    "submitting": "Envoi...",
+    "submit": "Envoyer",
+    "saving": "En cours...",
+    "save": "Sauvegarder"
+  },
+  "placeholder": {
+    "selectTarget": "Sélectionnez un groupe",
+    "comment": "Commentaire...",
+    "selectAnswer": "Sélectionnez une réponse",
+    "selectQuestionnaire": "Sélectionnez un questionnaire",
+    "enterDate": "Saisir une date",
+    "selectMultipleAnswers": "Sélectionnez une ou plusieurs réponses",
+    "multipleAnswersSelected": "{n} élément sélectionné | {n} éléments sélectionnés",
+    "selectUser": "Sélectionnez un utilisateur",
+    "searchPlaceholder": "Saisir quelques lettres...",
+    "allQuestionnaires": "Tous les questionnaires"
+  },
+  "question": {
+    "required": "Obligatoire",
+    "comment": "Commentaire",
+    "photo": "Photo",
+    "addPhoto": "Photo",
+    "uploading": "Envoi en cours...",
+    "maxPhotosReached": "Nombre max atteint",
+    "annotatePhoto": "Annoter",
+    "deletePhoto": "Supprimer",
+    "noAnswer": "Aucune réponse",
+    "noPhoto": "Aucune photo"
+  },
+  "periodSelector": {
+    "periods": "Périodes",
+    "noPeriod": "Aucune période",
+    "dateStart": "Date de début",
+    "dateEnd": "Date de fin",
+    "apply": "Appliquer",
+    "customPeriod": "Dates personnalisées",
+    "showPeriods": "Voir les périodes"
+  },
+  "chart": {
+    "noData": "Aucune donnée",
+    "average": "Moyenne"
+  },
+  "target": {
+    "root": "Mes groupes"
+  },
+  "alert": {
+    "errorTitle": "Erreur {code}",
+    "errorOccurred": "Une erreur technique s'est produite<br>Merci de réessayer plus tard",
+    "retry": "Réessayer",
+    "forbidden": "Action non autorisée",
+    "unauthorized": "Utilisateur non authentifié"
+  }
+}

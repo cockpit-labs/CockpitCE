@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="112.238" height="99.852">
+  <defs>
+    <filter id="a" x="24.651" y="3" width="87.587" height="96.852" filterUnits="userSpaceOnUse">
+      <feOffset/>
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feFlood flood-opacity=".161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g transform="translate(0 9)">
+    <circle cx="46.5" cy="46.5" r="46.5" transform="translate(7 -9)" fill="#d9e2ec"/>
+    <path d="M57.054 27.062l-19.903 23.72A9.679 9.679 0 1122.322 38.34l19.904-23.72a9.679 9.679 0 0114.828 12.442z" fill="#39acc6"/>
+    <rect width="69.266" height="19.357" rx="9.679" transform="rotate(130 38.638 27.047)" fill="#2a94ab"/>
+    <g transform="translate(0 -9)" filter="url(#a)">
+      <rect width="94.524" height="19.357" rx="9.679" transform="rotate(130 48.121 35.49)" fill="#ffc231"/>
+    </g>
+    <rect width="63.583" height="19.357" rx="9.679" transform="rotate(48 -19.888 28.212)" fill="#ffc231"/>
+  </g>
+</svg>

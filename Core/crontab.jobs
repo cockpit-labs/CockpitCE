@@ -1,0 +1,2 @@
+@daily /app/core/bin/console cockpit:calendar:check --all -q
+@daily /app/core/bin/console cockpit:users:check --all -q

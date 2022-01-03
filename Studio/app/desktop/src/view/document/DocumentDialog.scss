@@ -1,0 +1,34 @@
+.c-document {
+  /* avoid seeing lower components when collapser is being used */
+  background-color: white;
+  .c-doc-prop-ct {
+    background-color: #efefef;
+  }
+  .x-panelheader.x-horizontal {
+    min-height: 41px;
+  }
+  .x-toolbar-body-el {
+    padding-top: 0;
+    padding-bottom: 0;
+    min-height: 36px;
+  }
+  .blockstree > .x-mask {
+    /* use Collapser z-index + 1 for drawer to be under mask when loading tree */
+    z-index: 1000;
+  }
+  .x-gridrow.x-mark-dirty {
+    &.x-dirty > .x-cells-el > .x-gridcell:first-child:before {
+      /* mark row dirty when record is dirty, not only the critical/persistent cells */
+      color: var(--alert-color);
+      width: 14px;
+      height: 14px;
+      content: "\e602";
+      font-family: ExtJS;
+      font-size: 18px;
+      line-height: 1;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+}

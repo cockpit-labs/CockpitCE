@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>{{ source('style.css') }}</style>
+</head>
+<body>
+<div class="header">
+    <div class="questionnaire-title">{{ questionnaire.label }}</div>
+    <div class="details">
+        <div class="questionnaire-saved">{{ questionnaire.updatedAt|format_datetime('long', 'short', '', null, 'gregorian', locale) }}</div>
+        {% if user.firstname and user.lastname %}
+            <div class="questionnaire-user">
+                {{ user.firstname }} {{ user.lastname }}
+            </div>
+        {% endif %}
+    </div>
+</div>
+{% for block in questionnaire.blocks %}
+    <div class="block">
+        <div class="block-title">{{ block.label }}</div>
+        {% if block.description %}<div class="block-description">{{ block.description }}</div>{% endif %}
+        <div class="questions">
+            {% for question in block.questions %}
+                <div class="question-container">
+                    <div class="question">{{ question.label }}</div>
+                    <div class="answer">
+                        <div class="value">
+                            {% if question.writeRenderer.component == 'select' %}
+                                {% for selectedChoice in getSelectedChoices(question) if question.answers %}
+                                    <div class="choice">{{ selectedChoice }}</div>
+                                {% endfor %}
+                            {% elseif question.writeRenderer.component == 'dateTime' %}
+                                {% if question.writeRenderer.time %}
+                                    {% for answer in question.answers %}
+                                        {{ answer.rawValue|format_datetime('short', 'short', '', null, 'gregorian', locale) }}
+                                    {% endfor %}
+                                {% else %}
+                                    {% for answer in question.answers %}
+                                        {{ answer.rawValue|format_datetime('short', 'none', '', null, 'gregorian', locale) }}
+                                    {% endfor %}
+                                {% endif %}
+                            {% elseif question.writeRenderer.component == 'photo' %}
+                                <div class="photos">
+                                    {% for photo in question.answers %}
+                                        <img src="data:image/jpeg;base64,{{ photo.media }}" />
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                {% for answer in question.answers %}
+                                    {{ answer.rawValue }}
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                        {% if question.comment %}
+                            <div class="comment">
+                                {{ question.comment }}
+                            </div>
+                        {% endif %}
+                        {% if question.photos|length > 0 %}
+                            <div class="photos">
+                                {% for photo in question.photos %}
+                                    <img src="data:image/jpeg;base64,{{ photo }}" />
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endfor %}
+
+</body>
+</html>

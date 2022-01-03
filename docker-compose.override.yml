@@ -1,0 +1,9 @@
+version: '3.8'
+
+# If running on Apple M1, just uncomment following lines
+# services:
+#   mysql:
+#     platform: linux/amd64
+
+#   keycloak:
+#     image: wizzn/keycloak:14

@@ -1,0 +1,69 @@
+.cron-field {
+  padding: 4px;
+  & > .x-body-wrap-el > .x-body-el > .x-container > .x-body-el {
+    flex-wrap: wrap;
+    & > * {
+      margin: 7px;
+    }
+  }
+  .x-label {
+    text-align: center;
+    padding: 4px;
+    background-color: var(--header-background-color);
+    color: var(--base-color);border: 1px solid var(--base-color);
+  }
+  //   & > .x-body-wrap-el {
+  //     padding: 4px;
+  //   }
+}
+.cronpart-list {
+  .x-listitem {
+    background-color: #f5f5f5;
+    &.x-odd {
+      background-color: #fff;
+    }
+    &.x-selected {
+      background-color: var(--base-color);
+      color: var(--reverse-color);
+    }
+  }
+  .x-list-body-el {
+      border: 1px solid var(--base-color);
+      border-top-color: var(--highlight-color);
+  }
+  .x-listitem-inner-el {
+    padding: 2px;
+  }
+}
+
+// .cronpart-field {
+  //   border: 1px solid var(--base-color);
+  //   & > .x-label-el {
+  //     padding: 4px;
+  //     background-color: var(--header-background-color);
+  //     color: var(--base-color);
+  //   }
+  //   & > .x-body-wrap-el {
+  //     padding: 4px;
+  //   }
+  //   .cronpart-list {
+  //     .x-list-body-el {
+  //       border: 1px solid var(--base-color);
+  //     }
+  //     .x-field.radioselect > .x-body-wrap-el {
+  //       display: block;
+  //       /* alignment for radio button of list*/
+  //       /* padding-top: 6px; */
+  //     }
+  //     .x-listitem.x-selected {
+  //       background-color: var(--base-color);
+  //       color: var(--reverse-color);
+  //     }
+  //     .x-listitem-inner-el {
+  //       padding: 2px;
+  //     }
+  //     &.kind-of-disabling {
+  //       opacity: .5;
+  //     }
+  //   }
+  // }

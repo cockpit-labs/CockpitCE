@@ -1,0 +1,74 @@
+parameters:
+  CKP_EMAILFROM: '%env(EMAILFROM)%'
+  container.dumper.inline_factories: true
+services:
+  _defaults:
+    # Automatically injects dependencies in your services.
+    autowire: true
+    # Automatically registers your services as commands, event subscribers, etc.
+    autoconfigure: true
+  # makes classes in src/ available to be used as services
+  # this creates a service per class whose id is the fully-qualified class name
+  App\:
+    resource: '../src/*'
+    exclude: '../src/{DependencyInjection,Entity,Migrations,Tests,Kernel.php,DataFixtures,CentralAdmin}'
+  App\Controller\:
+    resource: '../src/Controller'
+    tags: ['controller.service_arguments']
+  Symfony\Bundle\TwigBundle\TwigBundle:
+    lazy: true
+  CronExpressionGenerator\FakerProvider:
+    tags: [{name: nelmio_alice.faker.provider}]
+  App\Security\CockpitJWTKeyLoader:
+    decorates: lexik_jwt_authentication.key_loader.raw
+  App\Swagger\SwaggerDecorator:
+    decorates: 'api_platform.swagger.normalizer.api_gateway'
+    arguments: ['@App\Swagger\SwaggerDecorator.inner']
+    autoconfigure: false
+  App\EventListener\LogRequestAndResponseEventListener:
+    tags:
+      - name: monolog.logger
+        channel: request_log
+      - name: kernel.event_listener
+        event: kernel.terminate
+        method: onKernelTerminate
+
+  App\EventListener\UserGroupRole\UserSubscriber:
+    tags:
+      - name: doctrine.event_subscriber
+  App\EventListener\UserGroupRole\RoleSubscriber:
+    tags:
+      - name: doctrine.event_subscriber
+  App\EventListener\UserGroupRole\GroupSubscriber:
+    tags:
+      - name: doctrine.event_subscriber
+  App\EventListener\UserGroupRole\PermissionSubscriber:
+    tags:
+      - name: doctrine.event_subscriber
+
+  App\Serializer\AdminContextBuilder:
+    decorates: api_platform.serializer.context_builder
+    arguments:
+      - '@App\Serializer\AdminContextBuilder.inner'
+    autoconfigure: false
+  App\Serializer\SuperuserContextBuilder:
+    decorates: api_platform.serializer.context_builder
+    arguments:
+      - '@App\Serializer\SuperuserContextBuilder.inner'
+    autoconfigure: false
+  App\Serializer\ViewContextBuilder:
+    decorates: api_platform.serializer.context_builder
+    arguments:
+      - '@App\Serializer\ViewContextBuilder.inner'
+    autoconfigure: false
+  App\EventListener\ImageUploadListener:
+    tags:
+      - name: kernel.event_listener
+        event: vich_uploader.pre_upload
+      - name: kernel.event_listener
+        event: vich_uploader.post_upload
+  App\Service\StorageDirectoryNamer:
+    public: true
+  # media storage configuration
+  League\Flysystem\FilesystemInterface: '@oneup_flysystem.mediaLocal_filesystem'
+  # S3 configuration: for media storage

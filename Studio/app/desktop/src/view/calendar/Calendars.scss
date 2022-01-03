@@ -1,0 +1,9 @@
+.c-calendars {
+  .c-list .x-paneltitle.x-paneltool .x-icon-el:before {
+    font-size: 18px;
+  }
+  .c-list .x-dataview-item .c-text:before {
+    content: 'date_range' !important;
+    font-family: 'Material Icons' !important;
+  }
+}

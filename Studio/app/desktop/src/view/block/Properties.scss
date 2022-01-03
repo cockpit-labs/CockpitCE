@@ -1,0 +1,23 @@
+.c-itemproperties {
+  .x-toolbar.item-actions {
+    position: absolute;
+    top: 0;
+    right: 16px;
+  }
+  .prop-fieldset > .x-body-el {
+    padding-top: 0;
+    padding-left: 0;
+  }
+  /* change height of choices grid titlebar and toolbar */
+  .c-choices {
+    .x-titlebar-body-el, .x-toolbar-body-el {
+      min-height: 32px;
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+    .x-toolbar-body-el .x-button .x-inner-el {
+      padding-top: 6px;
+      padding-bottom: 6px;
+    }
+  }
+}

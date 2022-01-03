@@ -1,0 +1,43 @@
+.mainview {
+  .x-tabbar .x-icon-el {
+      width: 24px;
+  }
+  /*.x-tabbar .x-body-el {
+    .x-tab:first-child {
+      flex-grow: 5 !important;
+      color: #FFF;
+      margin-right: auto;
+      .x-inner-el {
+        .x-body-el {
+          overflow:visible;
+        }
+        text-shadow: 0.1em 0.1em 0.1em #ccc;
+        padding: 0;
+        background: 10px center no-repeat url(logo.svg);
+        background-size: 2.7em;
+        .x-text-el {
+          padding-left: 46px;
+          font-size: large;
+          text-overflow: unset;
+          text-shadow: 0.1em 0.1em 0.1em #ccc;
+        }
+      }
+    }
+    .x-tab:last-child {
+      margin-left: auto;
+    }
+    .x-button.profile .x-text-el {
+      text-transform: none;
+    }
+  }*/
+  .goodbye:not(.x-hidden) {
+    background: center center no-repeat url(logo.svg);
+    background-size: 60%;
+  }
+}
+/* This cannot be done with Themer nor variables */
+.x-dialog .x-toolbar {
+  .x-button .x-inner-el {
+    background-color: $base-color;
+  }
+}

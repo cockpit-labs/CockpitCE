@@ -1,0 +1,44 @@
+.basedialog {
+    & > .x-body-wrap-el > .x-body-el {
+      /*  overflow: auto; */
+    }
+    /*
+    form {
+        height: 100%;
+        .x-toggle-field .x-body-el {
+            width: auto;
+        }
+    }*/
+    .x-dialog-body-el {
+        padding: 0;
+        /* background-color: var(--base-color);*/
+    }
+    /*.x-tab.x-active, .x-tab.x-active .x-icon-el {
+        color: var(--base-color);
+    }
+    .x-tab .x-icon-el {
+        width: 24px;
+    }
+    .x-tab.x-active .x-inner-el {
+        background-color: #fff;
+    }
+    .x-tab.x-has-text .x-inner-el {
+        padding: 10px 6px;
+    }
+    .x-toolbar-body-el {
+        padding: 4px 4px 0 4px;
+        min-height: 32px;
+    }
+    .x-toolbar-footer .x-toolbar-body-el {
+        padding-bottom: 4px;
+    }
+    .x-tab.x-active .x-active-indicator-el {
+        display: none;
+    }
+    .x-toolbar {
+        box-shadow: none;
+    }*/
+    .x-panelheader {
+        min-height: 40px;
+    }
+}

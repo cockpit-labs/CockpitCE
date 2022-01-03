@@ -1,0 +1,80 @@
+import { Meta, Props, Story, Preview } from '@storybook/addon-docs/blocks'
+import { action } from '@storybook/addon-actions'
+
+import SButton from './SButton'
+import SButtonText from './SButtonText'
+import SButtonIcon from './SButtonIcon'
+
+export const methods = {
+  onClick: action('clicked')
+}
+
+<Meta 
+  title="Components/Buttons"
+/>
+
+# Buttons
+  
+## Default button
+
+<Preview>
+  <Story name="Default">
+    {{
+      components: { SButton },
+      template: '<s-button @click="onClick">New version</s-button>',
+      methods
+    }}
+  </Story>
+  <Story name="Rounded">
+    {{
+      components: { SButton },
+      template: '<s-button rounded icon="angle-right" @click="onClick">Commencer</s-button>',
+      methods
+    }}
+  </Story>
+</Preview>
+
+<Props of={SButton} />
+
+## Icon button
+
+<Preview>
+  <Story name="Icon">
+    {{
+      components: { SButtonIcon },
+      template: '<s-button-icon icon="times" label="Close" @click="onClick" />',
+      methods
+    }}
+  </Story>
+  <Story name="Icon color inverted">
+    {{
+      components: { SButtonIcon },
+      template: '<s-button-icon icon="chevron-left" label="Previous" color="inverted" @click="onClick" />',
+      methods
+    }}
+  </Story>
+  <Story name="Icon color neutral">
+    {{
+      components: { SButtonIcon },
+      template: '<s-button-icon icon="user" label="User menu" color="neutral" @click="onClick" />',
+      methods
+    }}
+  </Story>
+</Preview>
+
+<Props of={SButtonIcon} />
+
+
+## Text button
+
+<Preview>
+  <Story name="Text">
+    {{
+      components: { SButtonText },
+      template: '<s-button-text icon="plus-circle" @click="onClick">New version</s-button-text>',
+      methods
+    }}
+  </Story>
+</Preview>
+
+<Props of={SButtonText} />

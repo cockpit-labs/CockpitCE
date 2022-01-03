@@ -1,0 +1,609 @@
+##################################
+App\Entity\Right:
+  attributes:
+    order:
+      id: ASC
+    denormalization_context:
+      groups:
+        - 'Right:Update'
+
+    normalization_context:
+      groups:
+        - 'Right:Read'
+        - 'Description'
+        - 'Resource'
+      preserve_empty_objects: true
+
+App\Entity\Attribute\GroupAttribute:
+  attributes:
+    denormalization_context:
+      groups:
+        - 'GroupAttribute:Update'
+        - 'Label'
+        - 'Description'
+
+    normalization_context:
+      groups:
+        - 'GroupAttribute:Read'
+        - 'Resource'
+        - 'Label'
+        - 'Description'
+      preserve_empty_objects: true
+
+  collectionOperations:
+    get:
+      security: is_granted('ROLE_User') or is_granted('ROLE_Admin')
+      security_message: 'Sorry, but you are not authorized.'
+    post:
+      security: is_granted('ROLE_Admin')
+      security_message: 'Sorry, but you are not authorized.'
+
+  itemOperations:
+    delete:
+      security: is_granted('ROLE_Admin')
+      security_message: 'Sorry, but you are not authorized.'
+    get:
+      security: is_granted('ROLE_User') or is_granted('ROLE_Admin')
+      security_message: 'Sorry, but you are not authorized.'
+    patch:
+      security: is_granted('ROLE_Admin')
+      security_message: 'Sorry, but you are not authorized.'
+
+##################################
+App\Entity\Attribute\UserAttribute:
+  attributes:
+    denormalization_context:
+      groups:
+        - 'UserAttribute:Update'
+        - 'Label'
+        - 'Description'
+
+    normalization_context:
+      groups:
+        - 'UserAttribute:Read'
+        - 'Resource'
+        - 'Label'
+        - 'Description'
+      preserve_empty_objects: true
+
+  collectionOperations:
+    get:
+      security: is_granted('ROLE_User') or is_granted('ROLE_Admin')
+      security_message: 'Sorry, but you are not authorized.'
+    post:
+      security: is_granted('ROLE_Admin')
+      security_message: 'Sorry, but you are not authorized.'
+
+  itemOperations:
+    delete:
+      security: is_granted('ROLE_Admin')
+      security_message: 'Sorry, but you are not authorized.'
+    get:
+      security: is_granted('ROLE_User') or is_granted('ROLE_Admin')
+      security_message: 'Sorry, but you are not authorized.'
+    patch:
+      security: is_granted('ROLE_Admin')
+      security_message: 'Sorry, but you are not authorized.'
+
+##################################
+App\Entity\Block\Block:
+  attributes:
+    denormalization_context:
+      groups:
+        - 'Block:Update'
+
+    normalization_context:
+      groups:
+        - 'Block:Read'
+        - 'Resource'
+        - 'Label'
+        - 'Description'
+      preserve_empty_objects: true
+      skip_null_values: false
+
+  collectionOperations:
+    get:
+      security: is_granted('ROLE_User') or is_granted('ROLE_Admin')
+      security_message: 'Sorry, but you are not authorized.'
+    getstat:
+      method: 'GET'
+      path: /blocks/stats
+      security: is_granted('ROLE_Dashboard')
+      security_message: 'Sorry, but you are not authorized.'
+      openapi_context:
+        summary: 'Get blocks stats'
+        description: ''
+      normalization_context:
+        groups:
+          - 'Resource'
+          - 'Label'
+          - 'Description'
+          - 'Score'
+        skip_null_values: false
+
+  itemOperations:
+    get:
+      security: is_granted('ROLE_User') or is_granted('ROLE_Admin')
+      security_message: 'Sorry, but you are not authorized.'
+    getstat:
+      method: 'GET'
+      path: /blocks/{id}/stats
+      security: is_granted('ROLE_Dashboard')
+      security_message: 'Sorry, but you are not authorized.'
+      openapi_context:
+        summary: 'Get block stats'
+        description: ''
+      normalization_context:
+        groups:
+          - 'Resource'
+          - 'Label'
+          - 'Description'
+          - 'Score'
+    patch:
+      denormalization_context:
+        groups:
+          - 'Block:Update'
+      security: is_granted('ROLE_User')
+      security_message: 'Sorry, but you are not authorized.'
+
+##################################
+App\Entity\Calendar:
+  attributes:
+    denormalization_context:
+      api_allow_update: true
+      groups:
+        - 'Calendar:Update'
+        - 'Label'
+        - 'Description'
+
+    normalization_context:
+      groups:
+        - 'Calendar:Read'
+        - 'Resource'
+        - 'Label'
+        - 'Description'
+      preserve_empty_objects: true
+      skip_null_values: false
+
+  collectionOperations:
+    get:
+#      security: is_granted('ROLE_User') or is_granted('ROLE_Admin')
+      security_message: 'Sorry, but you are not authorized.'
+    post:
+      security: is_granted('ROLE_Admin')
+      security_message: 'Sorry, but you are not authorized.'
+
+  itemOperations:
+    delete:
+      security: is_granted('ROLE_Admin')
+      security_message: 'Sorry, but you are not authorized.'
+    get:
+      security: is_granted('ROLE_User') or is_granted('ROLE_Admin')
+      security_message: 'Sorry, but you are not authorized.'
+    validate:
+      denormalization_context:
+        api_allow_update: true
+        groups:
+          - 'Calendar:Validate'
+      method: 'PATCH'
+      path: /calendars/{id}/validate
+      security: is_granted('ROLE_Superuser')
+      security_message: 'Sorry, but you are not authorized.'
+    patch:
+      security: is_granted('ROLE_Admin')
+      security_message: 'Sorry, but you are not authorized.'
+
+##################################
+App\Entity\Category:
+  attributes:
+    denormalization_context:
+      groups:
+        - 'Category:Update'
+        - 'Label'
+        - 'Description'
+
+    normalization_context:
+      groups:
+        - 'Category:Read'
+        - 'Resource'
+        - 'Label'
+        - 'Description'
+      preserve_empty_objects: true
+
+  collectionOperations:
+    get:
+      security: is_granted('ROLE_User') or is_granted('ROLE_Admin')
+      security_message: 'Sorry, but you are not authorized.'
+    post:
+      security: is_granted('ROLE_Admin')
+      security_message: 'Sorry, but you are not authorized.'
+
+  itemOperations:
+    delete:
+      security: is_granted('ROLE_Admin')
+      security_message: 'Sorry, but you are not authorized.'
+    get:
+      security: is_granted('ROLE_User') or is_granted('ROLE_Admin')
+      security_message: 'Sorry, but you are not authorized.'
+    patch:
+      security: is_granted('ROLE_Admin')
+      security_message: 'Sorry, but you are not authorized.'
+
+##################################
+App\Entity\Folder\Folder:
+  attributes:
+    input: App\Entity\Folder\Folder
+    normalization_context:
+      groups:
+        - 'Folder:Read'
+        - 'Resource'
+        - 'Label'
+        - 'Description'
+        - 'State'
+        - 'Blame'
+        - 'Timestamp'
+      preserve_empty_objects: true
+      skip_null_values: false
+
+  collectionOperations:
+    get:
+      output: App\Entity\Folder\Folder
+      security: is_granted('ROLE_User')
+      security_message: 'Sorry, but you are not authorized.'
+
+    stats:
+      method: 'GET'
+      path: /folders/stats
+      security: is_granted('ROLE_Dashboard')
+      security_message: 'Sorry, but you are not authorized.'
+      openapi_context:
+        summary: 'Get folders stats'
+        description: ''
+      normalization_context:
+        groups:
+          - 'Label'
+          - 'Blame'
+          - 'Timestamp'
+          - 'Resource'
+          - 'Score'
+
+    create:
+      method: 'POST'
+      path: /folders/create
+      denormalization_context:
+        groups:
+          - 'Folder:Create'
+      security: is_granted('ROLE_User')
+      security_message: 'Sorry, but you are not authorized.'
+      openapi_context:
+        summary: 'Instantiate a folder from a folder_tpl (just need folder_tpl id and target id)'
+        description: ''
+
+  itemOperations:
+    get:
+      security: is_granted('ROLE_User') and is_granted('VIEW', object)
+      security_message: 'Sorry, but you are not authorized.'
+    delete:
+      method: DELETE
+      input: App\Entity\Folder\Folder
+      denormalization_context:
+        groups:
+          - 'none'
+      normalization_context:
+        groups:
+          - 'Folder:Submit'
+          - 'label'
+      security: is_granted('OWNER', object) or is_granted('DELETE', object)
+      security_message: 'Sorry, but you are not authorized.'
+    getstats:
+      method: 'GET'
+      path: /folders/{id}/stats
+      security: is_granted('ROLE_Dashboard') and is_granted('STATS', object)
+
+      security_message: 'Sorry, but you are not authorized.'
+      openapi_context:
+        summary: 'Get folder stats'
+        description: ''
+      normalization_context:
+        groups:
+          - 'Blame'
+          - 'Timestamp'
+          - 'Resource'
+          - 'Label'
+          - 'Description'
+          - 'Score'
+    flow:
+      method: 'PATCH'
+      input: App\Entity\Folder\Folder
+      path: /folders/{id}/flow
+      openapi_context:
+        summary: 'promote/demote folder'
+        description: ''
+        parameters:
+          - in: path
+            name: id   # Note the name is the same as in the path
+            required: true
+            schema:
+              type: string
+              minimum: 1
+          - name: transition
+            in: query
+            required: true
+            schema:
+              type: string
+      denormalization_context:
+        groups:
+          - 'State'
+      security: is_granted('ROLE_User') and is_granted('FLOW', object)
+      security_message: 'Sorry, but you are not authorized.'
+    update:
+      method: 'PATCH'
+      input: App\Entity\Folder\Folder
+      denormalization_context:
+        groups:
+          - 'Folder:Read'
+          - 'Folder:Update'
+      security: is_granted('UPDATE', object) or is_granted('OWNER', object)
+      security_message: 'Sorry, but you are not authorized.'
+    submit:
+      method: 'PATCH'
+      input: App\Entity\Folder\Folder
+      path: /folders/{id}/submit
+      denormalization_context:
+        groups:
+          - 'State'
+      normalization_context:
+        groups:
+          - 'Folder:Submit'
+          - 'State'
+          - 'label'
+      security: is_granted('SUBMIT', object)
+      security_message: 'Sorry, but you are not authorized.'
+    review:
+      method: 'PATCH'
+      input: App\Entity\Folder\Folder
+      path: /folders/{id}/review
+      denormalization_context:
+        groups:
+          - 'State'
+      normalization_context:
+        groups:
+          - 'State'
+          - 'Folder:Review'
+          - 'label'
+      security: is_granted('REVIEW', object)
+      security_message: 'Sorry, but you are not authorized.'
+    validate:
+      method: 'PATCH'
+      input: App\Entity\Folder\Folder
+      path: /folders/{id}/validate
+      denormalization_context:
+        groups:
+          - 'State'
+      normalization_context:
+        groups:
+          - 'Folder:Validate'
+          - 'label'
+          - 'Score'
+          - 'State'
+      security: is_granted('VALIDATE', object)
+      security_message: 'Sorry, but you are not authorized.'
+    annotate:
+      method: 'PATCH'
+      path: /folders/{id}/annotate
+      security: is_granted('ANNOTATE', object)
+      security_message: 'Sorry, but you are not authorized.'
+
+##################################
+App\Entity\Question\Question:
+  attributes:
+    order: ['position']
+    denormalization_context:
+      groups:
+        - 'Question:Update'
+
+    normalization_context:
+      groups:
+        - 'Question:Read'
+        - Timestamp
+        - Blame
+        - 'Resource'
+        - 'Label'
+        - 'Description'
+      preserve_empty_objects: true
+      skip_null_values: false
+
+  collectionOperations:
+    get:
+      security: is_granted('ROLE_User')
+      security_message: 'Sorry, but you are not authorized.'
+
+  itemOperations:
+    get:
+      security: is_granted('ROLE_User')
+      security_message: 'Sorry, but you are not authorized.'
+    patch:
+      security: is_granted('ROLE_User')
+      security_message: 'Sorry, but you are not authorized.'
+
+##################################
+App\Entity\Answer\Answer:
+  attributes:
+    denormalization_context:
+      groups:
+        - 'Answer:Update'
+
+    normalization_context:
+      groups:
+        - 'Answer:Read'
+      preserve_empty_objects: true
+      skip_null_values: false
+
+  collectionOperations:
+    get:
+      security: is_granted('ROLE_User')
+      security_message: 'Sorry, but you are not authorized.'
+    post:
+      security: is_granted('ROLE_User')
+      security_message: 'Sorry, but you are not authorized.'
+
+  itemOperations:
+    delete:
+      security: is_granted('ROLE_User')
+      security_message: 'Sorry, but you are not authorized.'
+    get:
+      security: is_granted('ROLE_User')
+      security_message: 'Sorry, but you are not authorized.'
+    patch:
+      security: is_granted('ROLE_User')
+      security_message: 'Sorry, but you are not authorized.'
+
+##################################
+App\Entity\Choice\Choice:
+  attributes:
+    denormalization_context:
+      groups:
+        - 'Choice:Update'
+
+    normalization_context:
+      groups:
+        - 'Choice:Read'
+        - 'Resource'
+      preserve_empty_objects: true
+      skip_null_values: false
+
+  collectionOperations:
+    get:
+      security: is_granted('ROLE_User') or is_granted('ROLE_Admin')
+      security_message: 'Sorry, but you are not authorized.'
+
+  itemOperations:
+    get:
+      security: is_granted('ROLE_User')
+      security_message: 'Sorry, but you are not authorized.'
+    patch:
+      security: is_granted('ROLE_Admin')
+      security_message: 'Sorry, but you are not authorized.'
+
+##################################
+App\Entity\Questionnaire\Questionnaire:
+  attributes:
+    output: App\Entity\Questionnaire\Questionnaire
+    input: App\Entity\Questionnaire\Questionnaire
+    denormalization_context:
+      groups:
+        - 'Questionnaire:Update'
+        - 'Score'
+        - 'Resource'
+        - 'Label'
+        - 'Description'
+
+    normalization_context:
+      groups:
+        - 'Blame'
+        - 'Timestamp'
+        - Blame
+        - 'Questionnaire:Read'
+        - 'Resource'
+        - 'Label'
+        - 'Description'
+      preserve_empty_objects: true
+      skip_null_values: false
+
+  collectionOperations:
+    get:
+      security: is_granted('ROLE_User') or is_granted('ROLE_Admin')
+      security_message: 'Sorry, but you are not authorized.'
+    getstat:
+      method: 'GET'
+      path: /questionnaires/stats
+      security: is_granted('ROLE_Dashboard')
+      security_message: 'Sorry, but you are not authorized.'
+      openapi_context:
+        summary: 'Get questionnaires stats'
+        description: ''
+      normalization_context:
+        groups:
+          - 'Blame'
+          - 'Timestamp'
+          - 'Resource'
+          - 'Label'
+          - 'Description'
+          - 'Score'
+        skip_null_values: false
+
+  itemOperations:
+    get:
+      security: is_granted('ROLE_User')
+      security_message: 'Sorry, but you are not authorized.'
+    pdf:
+      method: 'GET'
+      path: /questionnaires/{id}/pdf
+      controller: App\Controller\GetQuestionnairePDFContentAction
+      security: is_granted('ROLE_User')
+      security_message: 'Sorry, but you are not authorized.'
+      openapi_context:
+        summary: 'Get questionnaire PDF'
+        description: ''
+      normalization_context:
+        groups:
+          - 'Resource'
+    sendpdf:
+      method: 'GET'
+      path: /questionnaires/{id}/sendpdf
+      security: is_granted('ROLE_User')
+      security_message: 'Sorry, but you are not authorized.'
+      openapi_context:
+        summary: 'Send questionnaire PDF'
+        description: ''
+        parameters:
+          - name: recipients
+            in: query
+            description: 'list of recipients'
+            required: true
+            minItems: 1
+            maxItems: 5
+            style: deepObject
+            schema:
+              type: array
+              collectionFormat: pipes
+              items:
+                type: string
+      normalization_context:
+        groups:
+          - 'Resource'
+
+    getstat:
+      method: 'GET'
+      path: /questionnaires/{id}/stats
+      security: is_granted('ROLE_Dashboard')
+      security_message: 'Sorry, but you are not authorized.'
+      openapi_context:
+        summary: 'Get questionnaire stats'
+        description: ''
+      normalization_context:
+        groups:
+          - 'Blame'
+          - 'Timestamp'
+          - 'Resource'
+          - 'Label'
+          - 'Description'
+          - 'Score'
+
+##################################
+App\Entity\Target:
+  attributes:
+    normalization_context:
+      groups:
+        - 'Target:Read'
+        - 'Label'
+
+  collectionOperations:
+    get:
+      security: is_granted('ROLE_User') or is_granted('ROLE_Admin')
+      security_message: 'Sorry, but you are not authorized.'
+
+  itemOperations:
+    get:
+      security: is_granted('ROLE_User') or is_granted('ROLE_Admin')
+      security_message: 'Sorry, but you are not authorized.'
